@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>· Q · ME.</title>
+    <title>· Q · ME. · 版本锚</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <style>
-        /* ========== 杂志级排版 ========== */
+        /* ========== 杂志级排版 (保持原风格) ========== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
@@ -25,7 +25,6 @@
         
         .app { max-width: 1000px; width: 100%; }
 
-        /* ========== 登录页 ========== */
         .login-screen {
             background: white;
             max-width: 400px;
@@ -47,530 +46,113 @@
             user-select: none;
         }
 
-        .role-tabs {
-            display: none; 
-            gap: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 0.5rem;
-            justify-content: center;
-        }
-
-        .role-tab {
-            background: none; border: none; padding: 0.2rem 0;
-            font-size: 0.8rem; text-transform: uppercase;
-            letter-spacing: 0.1em; color: #888; cursor: pointer;
-        }
-
+        .role-tabs { display: none; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; justify-content: center; }
+        .role-tab { background: none; border: none; padding: 0.2rem 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888; cursor: pointer; }
         .role-tab.active { color: #111; border-bottom: 1px solid #111; }
 
-        .password-hint {
-            display: none;
-            background: #f8f8f8;
-            border-left: 2px solid #111;
-            padding: 0.5rem 1rem;
-            margin: 1rem 0;
-            font-family: monospace;
-            font-size: 0.8rem;
-            text-align: left;
-            color: #333;
-        }
-        
-        .key-icon {
-            display: inline-block;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin: 0 0 0.5rem 0;
-            user-select: none;
-        }
-
+        .password-hint { display: none; background: #f8f8f8; border-left: 2px solid #111; padding: 0.5rem 1rem; margin: 1rem 0; font-family: monospace; font-size: 0.8rem; text-align: left; color: #333; }
+        .key-icon { display: inline-block; font-size: 1.2rem; cursor: pointer; margin: 0 0 0.5rem 0; user-select: none; }
         .input-group { margin-bottom: 1.5rem; text-align: left; }
-        .input-group label {
-            display: block; font-size: 0.6rem; text-transform: uppercase;
-            letter-spacing: 0.1em; color: #666; margin-bottom: 0.2rem;
-        }
-
-        .input-group input {
-            width: 100%; border: none; border-bottom: 1px solid #ccc;
-            padding: 0.4rem 0; font-size: 1rem; outline: none;
-            background: transparent;
-        }
-
+        .input-group label { display: block; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 0.2rem; }
+        .input-group input { width: 100%; border: none; border-bottom: 1px solid #ccc; padding: 0.4rem 0; font-size: 1rem; outline: none; background: transparent; }
         .auto-fill-info { color: #999; font-size: 0.7rem; margin-bottom: 1rem; }
         .error-msg { color: #b13b3b; font-size: 0.7rem; min-height: 1.2rem; }
-        .enter-btn {
-            width: 100%; background: #111; color: white; border: none;
-            padding: 0.8rem; font-size: 0.8rem; text-transform: uppercase;
-            letter-spacing: 0.1em; cursor: pointer; margin-top: 1rem;
-        }
+        .enter-btn { width: 100%; background: #111; color: white; border: none; padding: 0.8rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; margin-top: 1rem; }
 
         .main-content { display: none; }
         .main-content.visible { display: block; }
         
-        /* ========== 主界面 - 更整洁的排版 ========== */
-        .header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 1.5rem 0; 
-            border-bottom: 1px solid #111; 
-            margin-bottom: 2rem; 
-        }
-        .site-title { 
-            font-size: 1.8rem; 
-            font-weight: 300; 
-            letter-spacing: 0.1em; 
-            text-transform: uppercase;
-        }
-        .user-info { 
-            display: flex; 
-            align-items: center; 
-            gap: 1rem; 
-            font-size: 0.8rem; 
-            color: #555; 
-        }
-        .user-name {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-        .icon-btn {
-            background: none;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            padding: 0.2rem 0.3rem;
-            color: #666;
-        }
-        .icon-btn:hover {
-            color: #111;
-        }
-        .logout { 
-            background: none; 
-            border: 1px solid #aaa; 
-            padding: 0.2rem 1rem; 
-            font-size: 0.7rem; 
-            cursor: pointer; 
-        }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid #111; margin-bottom: 2rem; }
+        .site-title { font-size: 1.8rem; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; }
+        .user-info { display: flex; align-items: center; gap: 1rem; font-size: 0.8rem; color: #555; }
+        .user-name { display: flex; align-items: center; gap: 0.3rem; }
+        .icon-btn { background: none; border: none; font-size: 1rem; cursor: pointer; padding: 0.2rem 0.3rem; color: #666; }
+        .icon-btn:hover { color: #111; }
+        .logout { background: none; border: 1px solid #aaa; padding: 0.2rem 1rem; font-size: 0.7rem; cursor: pointer; }
         
-        /* 修改弹窗 - 简洁风格 */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.3);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-overlay.visible {
-            display: flex;
-        }
-        .change-modal {
-            background: white;
-            padding: 2rem;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            border: 1px solid #eaeaea;
-        }
-        .change-modal h3 {
-            font-weight: 300;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #111;
-            padding-bottom: 0.5rem;
-        }
-        .change-modal input, .change-modal textarea {
-            width: 100%;
-            padding: 0.6rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            font-family: 'Times New Roman', serif;
-            font-size: 0.9rem;
-        }
-        .change-modal textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 2000; justify-content: center; align-items: center; }
+        .modal-overlay.visible { display: flex; }
+        .change-modal { background: white; padding: 2rem; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 1px solid #eaeaea; }
+        .change-modal h3 { font-weight: 300; font-size: 1.3rem; margin-bottom: 1.5rem; border-bottom: 1px solid #111; padding-bottom: 0.5rem; }
+        .change-modal input, .change-modal textarea { width: 100%; padding: 0.6rem; margin-bottom: 1rem; border: 1px solid #ddd; font-family: 'Times New Roman', serif; font-size: 0.9rem; }
+        .change-modal textarea { min-height: 80px; resize: vertical; }
         
-        /* 绘图板 - 简洁 */
-        .drawing-canvas {
-            border: 1px solid #111;
-            background: white;
-            cursor: crosshair;
-            display: block;
-            margin: 1rem auto;
-            touch-action: none;
-        }
-        .canvas-toolbar {
-            display: flex;
-            gap: 0.5rem;
-            margin: 0.8rem 0;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .canvas-btn {
-            background: none;
-            border: 1px solid #111;
-            padding: 0.2rem 0.8rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-        .canvas-btn:hover {
-            background: #111;
-            color: white;
-        }
-        .canvas-color-picker {
-            display: flex;
-            gap: 0.3rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .color-dot {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1px solid #111;
-            cursor: pointer;
-        }
-        .color-dot.selected {
-            border: 2px solid #000;
-        }
+        .drawing-canvas { border: 1px solid #111; background: white; cursor: crosshair; display: block; margin: 1rem auto; touch-action: none; }
+        .canvas-toolbar { display: flex; gap: 0.5rem; margin: 0.8rem 0; justify-content: center; flex-wrap: wrap; }
+        .canvas-btn { background: none; border: 1px solid #111; padding: 0.2rem 0.8rem; cursor: pointer; font-size: 0.8rem; }
+        .canvas-btn:hover { background: #111; color: white; }
+        .canvas-color-picker { display: flex; gap: 0.3rem; align-items: center; flex-wrap: wrap; }
+        .color-dot { width: 20px; height: 20px; border-radius: 50%; border: 1px solid #111; cursor: pointer; }
+        .color-dot.selected { border: 2px solid #000; }
         
-        .modal-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-            margin-top: 1rem;
-        }
-        .modal-btn {
-            padding: 0.4rem 1.2rem;
-            border: none;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-        .modal-btn.confirm {
-            background: #111;
-            color: white;
-        }
-        .modal-btn.cancel {
-            background: #ddd;
-            color: #333;
-        }
+        .modal-buttons { display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1rem; }
+        .modal-btn { padding: 0.4rem 1.2rem; border: none; cursor: pointer; font-size: 0.8rem; }
+        .modal-btn.confirm { background: #111; color: white; }
+        .modal-btn.cancel { background: #ddd; color: #333; }
         
-        /* 管理图标 - 统一间距 */
-        .admin-lock, .view-whispers-icon, .visitor-log-icon {
-            font-size: 1rem;
-            cursor: pointer;
-            color: #666;
-            margin-right: 0.3rem;
-        }
-        .admin-lock:hover, .view-whispers-icon:hover, .visitor-log-icon:hover {
-            color: #111;
-        }
+        .admin-lock, .view-whispers-icon, .visitor-log-icon { font-size: 1rem; cursor: pointer; color: #666; margin-right: 0.3rem; }
+        .admin-lock:hover, .view-whispers-icon:hover, .visitor-log-icon:hover { color: #111; }
         
-        /* 发布面板 - 更整洁 */
-        .publish-panel { 
-            border: 1px solid #e0e0e0; 
-            background: #fcfcfc; 
-            padding: 2rem; 
-            margin: 2rem 0; 
-        }
-        .block { 
-            border: 1px solid #e8e8e8; 
-            padding: 1.5rem; 
-            background: white; 
-            margin-bottom: 1rem; 
-        }
-        .block textarea { 
-            width: 100%; 
-            min-height: 80px; 
-            padding: 0.8rem; 
-            border: 1px solid #ddd; 
-            font-size: 0.9rem;
-        }
+        .publish-panel { border: 1px solid #e0e0e0; background: #fcfcfc; padding: 2rem; margin: 2rem 0; }
+        .block { border: 1px solid #e8e8e8; padding: 1.5rem; background: white; margin-bottom: 1rem; }
+        .block textarea { width: 100%; min-height: 80px; padding: 0.8rem; border: 1px solid #ddd; font-size: 0.9rem; }
         
-        .file-upload-container {
-            margin-top: 1rem;
-            border: 1px dashed #ccc;
-            padding: 1rem;
-            background: #f9f9f9;
-        }
-        .file-info {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #fff;
-            padding: 0.4rem 1rem;
-            border: 1px solid #eee;
-            font-size: 0.8rem;
-        }
-        .context-menu {
-            display: none;
-            position: absolute;
-            background: white;
-            border: 1px solid #ccc;
-            z-index: 1000;
-            min-width: 120px;
-        }
-        .context-menu-item {
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-        .context-menu-item:hover {
-            background: #f0f0f0;
-        }
+        .file-upload-container { margin-top: 1rem; border: 1px dashed #ccc; padding: 1rem; background: #f9f9f9; }
+        .file-info { display: flex; align-items: center; justify-content: space-between; background: #fff; padding: 0.4rem 1rem; border: 1px solid #eee; font-size: 0.8rem; }
+        .context-menu { display: none; position: absolute; background: white; border: 1px solid #ccc; z-index: 1000; min-width: 120px; }
+        .context-menu-item { padding: 0.5rem 1rem; cursor: pointer; font-size: 0.8rem; }
+        .context-menu-item:hover { background: #f0f0f0; }
         
-        /* 内容流 - 更紧凑 */
         .feed { margin: 2rem 0; display: flex; flex-direction: column; gap: 3rem; }
-        .feed-item { 
-            border-bottom: 1px solid #f0f0f0; 
-            padding-bottom: 2rem; 
-            position: relative; 
-        }
-        .feed-header { 
-            border-left: 2px solid #111; 
-            padding-left: 0.8rem; 
-            margin-bottom: 1rem; 
-            color: #666;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .feed-item { border-bottom: 1px solid #f0f0f0; padding-bottom: 2rem; position: relative; }
+        .feed-header { border-left: 2px solid #111; padding-left: 0.8rem; margin-bottom: 1rem; color: #666; display: flex; justify-content: space-between; align-items: center; }
         .feed-author { font-weight: bold; color: #111; text-transform: uppercase; font-size: 0.9rem; }
         .feed-date { color: #666; font-size: 0.8rem; }
-        
         .feed-content { margin-bottom: 1rem; }
-        .feed-text { white-space: pre-wrap; font-size: 1rem; margin-bottom: 1rem; line-height: 1.6; }
+        .feed-text { white-space: pre-wrap; font-size: 1rem; margin-bottom: 1rem; line-height: 1.6; cursor: pointer; }
         .feed-image { max-width: 100%; border: 1px solid #eee; margin-bottom: 1rem; cursor: pointer; }
         
-        /* 浏览次数 */
-        .view-count-container {
-            display: flex;
-            justify-content: flex-end;
-            margin: 0.5rem 0;
-        }
-        .view-count {
-            font-size: 0.7rem;
-            color: #888;
-            background: #f0f0f0;
-            padding: 0.1rem 0.6rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-        }
+        .view-count-container { display: flex; justify-content: flex-end; margin: 0.5rem 0; }
+        .view-count { font-size: 0.7rem; color: #888; background: #f0f0f0; padding: 0.1rem 0.6rem; display: inline-flex; align-items: center; gap: 0.2rem; }
         
-        /* 评论区 - 更紧凑 */
-        .comment-section { 
-            margin-top: 1rem; 
-            padding-top: 1rem; 
-            border-top: 1px dotted #ccc; 
-        }
-        .comments-list {
-            margin-bottom: 1rem;
-            max-height: 250px;
-            overflow-y: auto;
-            padding-right: 0.5rem;
-        }
-        .comment-item { 
-            background: #f9f9f9; 
-            padding: 0.8rem; 
-            margin-bottom: 0.5rem; 
-            border-left: 2px solid #ddd;
-            position: relative;
-            font-size: 0.9rem;
-        }
-        .comment-meta { 
-            font-size: 0.7rem; 
-            color: #888; 
-            margin-bottom: 0.2rem;
-            display: flex;
-            gap: 0.5rem;
-        }
+        .comment-section { margin-top: 1rem; padding-top: 1rem; border-top: 1px dotted #ccc; }
+        .comments-list { margin-bottom: 1rem; max-height: 250px; overflow-y: auto; padding-right: 0.5rem; }
+        .comment-item { background: #f9f9f9; padding: 0.8rem; margin-bottom: 0.5rem; border-left: 2px solid #ddd; position: relative; font-size: 0.9rem; }
+        .comment-meta { font-size: 0.7rem; color: #888; margin-bottom: 0.2rem; display: flex; gap: 0.5rem; }
         .comment-user { font-weight: bold; color: #111; }
+        .delete-comment { position: absolute; top: 0.3rem; right: 0.3rem; background: none; border: 1px solid #ccc; color: #999; font-size: 0.6rem; padding: 0.1rem 0.4rem; cursor: pointer; }
+        .comment-input-area { background: #f5f5f5; padding: 1rem; }
+        .comment-input { width: 100%; padding: 0.6rem; margin-bottom: 0.5rem; border: 1px solid #ddd; font-size: 0.9rem; }
+        .comment-btn { background: #111; color: white; padding: 0.3rem 1.2rem; border: none; cursor: pointer; font-size: 0.7rem; }
+        .delete-post { position: absolute; top: 0; right: 0; font-size: 0.6rem; color: #ccc; border: 1px solid #eee; background: none; padding: 0.1rem 0.6rem; cursor: pointer; }
         
-        .delete-comment {
-            position: absolute;
-            top: 0.3rem;
-            right: 0.3rem;
-            background: none;
-            border: 1px solid #ccc;
-            color: #999;
-            font-size: 0.6rem;
-            padding: 0.1rem 0.4rem;
-            cursor: pointer;
-        }
-        
-        .comment-input-area {
-            background: #f5f5f5;
-            padding: 1rem;
-        }
-        .comment-input { 
-            width: 100%; 
-            padding: 0.6rem; 
-            margin-bottom: 0.5rem; 
-            border: 1px solid #ddd; 
-            font-size: 0.9rem;
-        }
-        .comment-btn { 
-            background: #111; 
-            color: white; 
-            padding: 0.3rem 1.2rem; 
-            border: none; 
-            cursor: pointer; 
-            font-size: 0.7rem;
-        }
-        
-        .delete-post { 
-            position: absolute; 
-            top: 0; 
-            right: 0; 
-            font-size: 0.6rem; 
-            color: #ccc; 
-            border: 1px solid #eee; 
-            background: none; 
-            padding: 0.1rem 0.6rem;
-            cursor: pointer;
-        }
-        
-        /* 悄悄话面板 - 更整洁 */
-        .whispers-panel, .visitor-log-panel, .password-manager {
-            display: none;
-            border: 1px solid #e0e0e0;
-            background: #fcfcfc;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        .whispers-panel.visible, .visitor-log-panel.visible, .password-manager.visible {
-            display: block;
-        }
-        .whispers-header, .visitor-log-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #111;
-            padding-bottom: 0.5rem;
-        }
-        .whispers-header h3, .visitor-log-header h3, .password-manager h3 {
-            font-weight: 300;
-            font-size: 1.2rem;
-        }
-        .close-whispers, .close-visitor-log {
-            background: none;
-            border: 1px solid #aaa;
-            padding: 0.2rem 0.8rem;
-            cursor: pointer;
-            font-size: 0.7rem;
-        }
-        .whispers-list, .visitor-log-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        .whisper-item {
-            background: white;
-            border: 1px solid #eaeaea;
-            padding: 1rem;
-            border-left: 2px solid #111;
-        }
-        .whisper-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.7rem;
-            color: #888;
-        }
+        .whispers-panel, .visitor-log-panel, .password-manager { display: none; border: 1px solid #e0e0e0; background: #fcfcfc; padding: 1.5rem; margin: 1.5rem 0; }
+        .whispers-panel.visible, .visitor-log-panel.visible, .password-manager.visible { display: block; }
+        .whispers-header, .visitor-log-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid #111; padding-bottom: 0.5rem; }
+        .whispers-header h3, .visitor-log-header h3, .password-manager h3 { font-weight: 300; font-size: 1.2rem; }
+        .close-whispers, .close-visitor-log { background: none; border: 1px solid #aaa; padding: 0.2rem 0.8rem; cursor: pointer; font-size: 0.7rem; }
+        .whispers-list, .visitor-log-list { display: flex; flex-direction: column; gap: 1rem; max-height: 400px; overflow-y: auto; }
+        .whisper-item { background: white; border: 1px solid #eaeaea; padding: 1rem; border-left: 2px solid #111; }
+        .whisper-meta { display: flex; gap: 1rem; margin-bottom: 0.5rem; font-size: 0.7rem; color: #888; }
         .whisper-sender { font-weight: bold; color: #111; }
         .whisper-content { font-size: 0.9rem; margin-bottom: 0.5rem; }
         .whisper-image { max-width: 200px; border: 1px solid #eee; cursor: pointer; }
         
-        /* 访客记录 - 只保留时间 */
-        .visitor-log-item {
-            background: white;
-            border: 1px solid #eaeaea;
-            padding: 0.8rem 1rem;
-            border-left: 2px solid #111;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-        }
-        .visitor-log-name {
-            font-weight: bold;
-            color: #111;
-        }
-        .visitor-log-time {
-            color: #888;
-        }
+        .visitor-log-item { background: white; border: 1px solid #eaeaea; padding: 0.8rem 1rem; border-left: 2px solid #111; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
+        .visitor-log-name { font-weight: bold; color: #111; }
+        .visitor-log-time { color: #888; }
         
-        /* 密码管理 - 更紧凑 */
-        .password-manager .password-section {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px dashed #ccc;
-        }
-        .password-manager h4 {
-            font-weight: 300;
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-        }
-        .password-field {
-            margin-bottom: 1rem;
-        }
-        .password-field label {
-            display: block;
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            color: #666;
-            margin-bottom: 0.2rem;
-        }
-        .password-field input {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            font-size: 0.9rem;
-        }
-        .save-password-btn {
-            background: #111;
-            color: white;
-            border: none;
-            padding: 0.5rem 1.5rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-        .current-settings {
-            background: #f9f9f9;
-            padding: 0.8rem;
-            margin-bottom: 1.5rem;
-            border-left: 2px solid #111;
-            font-size: 0.8rem;
-        }
+        .password-manager .password-section { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px dashed #ccc; }
+        .password-manager h4 { font-weight: 300; font-size: 1rem; margin-bottom: 0.8rem; }
+        .password-field { margin-bottom: 1rem; }
+        .password-field label { display: block; font-size: 0.6rem; text-transform: uppercase; color: #666; margin-bottom: 0.2rem; }
+        .password-field input { width: 100%; padding: 0.5rem; border: 1px solid #ddd; font-size: 0.9rem; }
+        .save-password-btn { background: #111; color: white; border: none; padding: 0.5rem 1.5rem; cursor: pointer; font-size: 0.8rem; text-transform: uppercase; }
+        .current-settings { background: #f9f9f9; padding: 0.8rem; margin-bottom: 1.5rem; border-left: 2px solid #111; font-size: 0.8rem; }
         
-        /* 密码重置 */
-        .reset-password-link {
-            text-align: right;
-            margin: 0.5rem 0;
-            font-size: 0.7rem;
-        }
-        .reset-password-link span {
-            color: #666;
-            text-decoration: underline dotted;
-            cursor: pointer;
-        }
-        .attempts-left {
-            font-size: 0.6rem;
-            color: #b13b3b;
-            margin-top: 0.2rem;
-        }
+        .reset-password-link { text-align: right; margin: 0.5rem 0; font-size: 0.7rem; }
+        .reset-password-link span { color: #666; text-decoration: underline dotted; cursor: pointer; }
+        .attempts-left { font-size: 0.6rem; color: #b13b3b; margin-top: 0.2rem; }
         
         .timer { text-align: right; font-size: 0.6rem; color: #999; margin-top: 2rem; }
         .image-modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; }
@@ -580,1283 +162,263 @@
 </head>
 <body>
 <div class="app">
-    <!-- 改名弹窗 -->
-    <div id="nameChangeModal" class="modal-overlay">
-        <div class="change-modal">
-            <h3>修改姓名</h3>
-            <input type="text" id="newNameInput" placeholder="新姓名">
-            <div id="nameChangeError" class="error-msg"></div>
-            <div class="modal-buttons">
-                <button class="modal-btn cancel" id="cancelNameChange">取消</button>
-                <button class="modal-btn confirm" id="confirmNameChange">确认</button>
-            </div>
-        </div>
-    </div>
+    <!-- 改名弹窗 / 密码弹窗 / 重置密码弹窗 / 悄悄话弹窗 (结构与原版一致) -->
+    <div id="nameChangeModal" class="modal-overlay"><div class="change-modal"><h3>修改姓名</h3><input type="text" id="newNameInput" placeholder="新姓名"><div id="nameChangeError" class="error-msg"></div><div class="modal-buttons"><button class="modal-btn cancel" id="cancelNameChange">取消</button><button class="modal-btn confirm" id="confirmNameChange">确认</button></div></div></div>
+    <div id="passwordChangeModal" class="modal-overlay"><div class="change-modal"><h3>修改个人密码</h3><input type="password" id="newPasswordInput" placeholder="新密码"><input type="password" id="confirmPasswordInput" placeholder="确认密码"><div id="passwordChangeError" class="error-msg"></div><div class="modal-buttons"><button class="modal-btn cancel" id="cancelPasswordChange">取消</button><button class="modal-btn confirm" id="confirmPasswordChange">确认</button></div></div></div>
+    <div id="resetPasswordModal" class="modal-overlay"><div class="change-modal"><h3>重置密码</h3><p style="margin-bottom:1rem;font-size:0.8rem;color:#666;">设置新密码</p><input type="password" id="newResetPassword" placeholder="新密码"><input type="password" id="confirmResetPassword" placeholder="确认密码"><div id="resetPasswordError" class="error-msg"></div><div class="modal-buttons"><button class="modal-btn cancel" id="cancelResetPassword">取消</button><button class="modal-btn confirm" id="confirmResetPassword">重置</button></div></div></div>
+    <div id="whisperModal" class="modal-overlay"><div class="change-modal" style="max-width:550px;"><h3>悄悄话 ✉️</h3><textarea id="whisperContent" placeholder="写点悄悄话..."></textarea><div style="border:1px solid #ddd;padding:1rem;margin-bottom:1rem;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;"><span style="font-size:0.8rem;color:#666;">✏️ 绘图板</span><div class="canvas-toolbar"><div class="canvas-color-picker"><div class="color-dot selected" data-color="#000000" style="background:#000;"></div><div class="color-dot" data-color="#666" style="background:#666;"></div><div class="color-dot" data-color="#b13b3b" style="background:#b13b3b;"></div><div class="color-dot" data-color="#2e7d32" style="background:#2e7d32;"></div><div class="color-dot" data-color="#ffd700" style="background:#ffd700;"></div><div class="color-dot" data-color="#4169e1" style="background:#4169e1;"></div></div><button class="canvas-btn" id="undoCanvas">↩ 撤回</button><button class="canvas-btn" id="clearCanvas">🗑 清除</button></div></div><canvas id="whisperCanvas" class="drawing-canvas" width="350" height="180"></canvas></div><input type="file" id="whisperImage" accept="image/*"><div id="selectedWhisperFileInfo" style="margin:0.5rem 0;font-size:0.7rem;color:#666;"></div><div id="whisperError" class="error-msg"></div><div class="modal-buttons"><button class="modal-btn cancel" id="cancelWhisper">取消</button><button class="modal-btn confirm" id="sendWhisper">发送</button></div></div></div>
+    <div id="imageModal" class="image-modal" onclick="this.classList.remove('active')"><img class="modal-content" id="modalImage"></div>
+    <div id="fileContextMenu" class="context-menu"><div class="context-menu-item" id="deleteFileMenuItem">删除文件</div></div>
 
-    <!-- 改密码弹窗 -->
-    <div id="passwordChangeModal" class="modal-overlay">
-        <div class="change-modal">
-            <h3>修改个人密码</h3>
-            <input type="password" id="newPasswordInput" placeholder="新密码">
-            <input type="password" id="confirmPasswordInput" placeholder="确认密码">
-            <div id="passwordChangeError" class="error-msg"></div>
-            <div class="modal-buttons">
-                <button class="modal-btn cancel" id="cancelPasswordChange">取消</button>
-                <button class="modal-btn confirm" id="confirmPasswordChange">确认</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 重置密码弹窗 - 修复按钮点击问题 -->
-    <div id="resetPasswordModal" class="modal-overlay">
-        <div class="change-modal">
-            <h3>重置密码</h3>
-            <p style="margin-bottom: 1rem; font-size: 0.8rem; color: #666;">设置新密码</p>
-            <input type="password" id="newResetPassword" placeholder="新密码">
-            <input type="password" id="confirmResetPassword" placeholder="确认密码">
-            <div id="resetPasswordError" class="error-msg"></div>
-            <div class="modal-buttons">
-                <button class="modal-btn cancel" id="cancelResetPassword">取消</button>
-                <button class="modal-btn confirm" id="confirmResetPassword">重置</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 悄悄话弹窗 -->
-    <div id="whisperModal" class="modal-overlay">
-        <div class="change-modal" style="max-width: 550px;">
-            <h3>悄悄话 ✉️</h3>
-            
-            <textarea id="whisperContent" placeholder="写点悄悄话..." style="margin-bottom: 1rem;"></textarea>
-            
-            <div style="border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                    <span style="font-size: 0.8rem; color: #666;">✏️ 绘图板</span>
-                    <div class="canvas-toolbar">
-                        <div class="canvas-color-picker">
-                            <div class="color-dot selected" data-color="#000000" style="background: #000000;"></div>
-                            <div class="color-dot" data-color="#666666" style="background: #666666;"></div>
-                            <div class="color-dot" data-color="#b13b3b" style="background: #b13b3b;"></div>
-                            <div class="color-dot" data-color="#2e7d32" style="background: #2e7d32;"></div>
-                            <div class="color-dot" data-color="#ffd700" style="background: #ffd700;"></div>
-                            <div class="color-dot" data-color="#4169e1" style="background: #4169e1;"></div>
-                        </div>
-                        <button class="canvas-btn" id="undoCanvas">↩ 撤回</button>
-                        <button class="canvas-btn" id="clearCanvas">🗑 清除</button>
-                    </div>
-                </div>
-                <canvas id="whisperCanvas" class="drawing-canvas" width="350" height="180"></canvas>
-            </div>
-            
-            <input type="file" id="whisperImage" accept="image/*" style="margin-bottom: 0.5rem;">
-            <div id="selectedWhisperFileInfo" style="margin: 0.5rem 0; font-size: 0.7rem; color: #666;"></div>
-            <div id="whisperError" class="error-msg"></div>
-            
-            <div class="modal-buttons">
-                <button class="modal-btn cancel" id="cancelWhisper">取消</button>
-                <button class="modal-btn confirm" id="sendWhisper">发送</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="imageModal" class="image-modal" onclick="this.classList.remove('active')">
-        <img class="modal-content" id="modalImage">
-    </div>
-
-    <div id="fileContextMenu" class="context-menu">
-        <div class="context-menu-item" id="deleteFileMenuItem">删除文件</div>
-    </div>
-
+    <!-- 登录页 -->
     <div id="loginPage" class="login-screen">
         <h2 id="mainLogo">◼  ME.  ◼</h2>
-        <p style="font-size: 0.6rem; color: #ccc; margin-bottom: 2rem;">READER ACCESS</p>
-        
-        <div id="roleTabs" class="role-tabs">
-            <button id="adminTabOnly" class="role-tab active">Editor</button>
-        </div>
-
+        <p style="font-size:0.6rem;color:#ccc;margin-bottom:2rem;">· VERSION ANCHOR ·</p>
+        <div id="roleTabs" class="role-tabs"><button id="adminTabOnly" class="role-tab active">Editor</button></div>
         <div id="visitorArea">
-            <div class="auto-fill-info">Welcome back.</div>
+            <div class="auto-fill-info">Welcome.</div>
             <div id="keyIcon" class="key-icon">🔑</div>
             <div id="passwordHint" class="password-hint"></div>
-            
-            <div class="input-group">
-                <label>NAME</label>
-                <input type="text" id="visitorNameInput" placeholder="Your name">
-            </div>
-            <div class="input-group">
-                <label>PASSWORD</label>
-                <input type="password" id="visitorPersonalPass" placeholder="个人密码">
-            </div>
-            <div class="input-group">
-                <label>🔐 暗号</label>
-                <input type="text" id="visitorSecretCode" placeholder="暗号">
-            </div>
-            
+            <div class="input-group"><label>NAME</label><input type="text" id="visitorNameInput" placeholder="Your name"></div>
+            <div class="input-group"><label>PASSWORD</label><input type="password" id="visitorPersonalPass" placeholder="个人密码"></div>
+            <div class="input-group"><label>🔐 暗号</label><input type="text" id="visitorSecretCode" placeholder="暗号"></div>
             <div id="loginAttemptsInfo" class="attempts-left"></div>
-            <div class="reset-password-link">
-                <span id="forgotPasswordLink">忘记密码？</span>
-            </div>
+            <div class="reset-password-link"><span id="forgotPasswordLink">忘记密码？</span></div>
         </div>
-
-        <div id="adminForm" style="display: none;">
-            <div class="input-group">
-                <label>NAME</label>
-                <input type="text" id="adminNameInput">
-            </div>
-            <div class="input-group">
-                <label>KEY</label>
-                <input type="password" id="adminPass">
-            </div>
-        </div>
-
+        <div id="adminForm" style="display:none;"><div class="input-group"><label>NAME</label><input type="text" id="adminNameInput"></div><div class="input-group"><label>KEY</label><input type="password" id="adminPass"></div></div>
         <div id="loginError" class="error-msg"></div>
         <button id="loginBtn" class="enter-btn">ENTER</button>
     </div>
 
-    <div id="visitorMain" class="main-content">
-        <div class="header">
-            <div class="site-title">◼  ME.  ◼</div>
-            <div class="user-info">
-                <div class="user-name">
-                    <span id="vDisplayName" style="font-size:0.9rem;"></span>
-                    <button id="editNameBtn" class="icon-btn" title="改名">✎</button>
-                    <button id="editPasswordBtn" class="icon-btn" title="改密码">🔒</button>
-                    <button id="sendWhisperBtn" class="icon-btn" title="悄悄话">✉️</button>
-                </div>
-                <button id="visitorExit" class="logout">EXIT</button>
-            </div>
-        </div>
-        <div id="visitorFeed" class="feed"></div>
-        <div id="visitorTimer" class="timer"></div>
-    </div>
+    <!-- 访客主界面 -->
+    <div id="visitorMain" class="main-content"><div class="header"><div class="site-title">◼  ME.  ◼</div><div class="user-info"><div class="user-name"><span id="vDisplayName"></span><button id="editNameBtn" class="icon-btn" title="改名">✎</button><button id="editPasswordBtn" class="icon-btn" title="改密码">🔒</button><button id="sendWhisperBtn" class="icon-btn" title="悄悄话">✉️</button></div><button id="visitorExit" class="logout">EXIT</button></div></div><div id="visitorFeed" class="feed"></div><div id="visitorTimer" class="timer"></div></div>
 
+    <!-- 管理员主界面 -->
     <div id="adminMain" class="main-content">
-        <div class="header">
-            <div class="site-title">◼  EDITOR  ◼</div>
-            <div class="user-info">
-                <span id="adminLockIcon" class="admin-lock" title="密码管理">⚙️</span>
-                <span id="viewWhispersIcon" class="view-whispers-icon" title="悄悄话">📨</span>
-                <span id="viewVisitorLogIcon" class="visitor-log-icon" title="访客">📋</span>
-                <button id="adminExit" class="logout">EXIT</button>
-            </div>
-        </div>
-
-        <!-- 悄悄话面板 -->
-        <div id="whispersPanel" class="whispers-panel">
-            <div class="whispers-header">
-                <h3>📨 悄悄话</h3>
-                <button class="close-whispers" id="closeWhispersBtn">关闭</button>
-            </div>
-            <div id="whispersList" class="whispers-list"></div>
-        </div>
-
-        <!-- 访客记录面板 - 只保留时间 -->
-        <div id="visitorLogPanel" class="visitor-log-panel">
-            <div class="visitor-log-header">
-                <h3>📋 访客记录</h3>
-                <button class="close-visitor-log" id="closeVisitorLogBtn">关闭</button>
-            </div>
-            <div id="visitorLogList" class="visitor-log-list"></div>
-        </div>
-
-        <!-- 密码管理面板 -->
-        <div id="passwordManager" class="password-manager">
-            <h3>⚙️ 管理</h3>
-            <div class="current-settings" id="currentSettings"></div>
-            
-            <div class="password-section">
-                <h4>暗号设置</h4>
-                <div class="password-field">
-                    <label>新暗号</label>
-                    <input type="text" id="newSecretCode" placeholder="新暗号">
-                </div>
-                <div class="password-field">
-                    <label>提示</label>
-                    <input type="text" id="newCodeHint" placeholder="暗号提示">
-                </div>
-            </div>
-            
-            <div class="password-section">
-                <h4>管理员密码</h4>
-                <div class="password-field">
-                    <label>新密码</label>
-                    <input type="text" id="newAdminPass" placeholder="新密码">
-                </div>
-                <div class="password-field">
-                    <label>确认</label>
-                    <input type="text" id="confirmAdminPass" placeholder="确认密码">
-                </div>
-            </div>
-            
-            <button id="savePasswordBtn" class="save-password-btn">保存</button>
-        </div>
-
-        <div class="publish-panel">
-            <div id="blocksContainer">
-                <div class="block">
-                    <textarea id="postText" placeholder="Write something..."></textarea>
-                    
-                    <div class="file-upload-container" id="fileUploadContainer">
-                        <input type="file" id="postFile" accept="image/*" style="margin-bottom: 10px;">
-                        <div id="selectedFileInfo" class="file-info" style="display: none;">
-                            <span class="file-name" id="selectedFileName"></span>
-                            <span class="file-delete-hint">右键删除</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button id="publishPostBtn" class="enter-btn">PUBLISH</button>
-        </div>
-
+        <div class="header"><div class="site-title">◼  EDITOR  ◼</div><div class="user-info"><span id="adminLockIcon" class="admin-lock" title="密码管理">⚙️</span><span id="viewWhispersIcon" class="view-whispers-icon" title="悄悄话">📨</span><span id="viewVisitorLogIcon" class="visitor-log-icon" title="访客">📋</span><button id="adminExit" class="logout">EXIT</button></div></div>
+        <div id="whispersPanel" class="whispers-panel"><div class="whispers-header"><h3>📨 悄悄话</h3><button class="close-whispers" id="closeWhispersBtn">关闭</button></div><div id="whispersList" class="whispers-list"></div></div>
+        <div id="visitorLogPanel" class="visitor-log-panel"><div class="visitor-log-header"><h3>📋 访客记录</h3><button class="close-visitor-log" id="closeVisitorLogBtn">关闭</button></div><div id="visitorLogList" class="visitor-log-list"></div></div>
+        <div id="passwordManager" class="password-manager"><h3>⚙️ 管理</h3><div class="current-settings" id="currentSettings"></div><div class="password-section"><h4>暗号设置</h4><div class="password-field"><label>新暗号</label><input type="text" id="newSecretCode" placeholder="新暗号"></div><div class="password-field"><label>提示</label><input type="text" id="newCodeHint" placeholder="暗号提示"></div></div><div class="password-section"><h4>管理员密码</h4><div class="password-field"><label>新密码</label><input type="text" id="newAdminPass" placeholder="新密码"></div><div class="password-field"><label>确认</label><input type="text" id="confirmAdminPass" placeholder="确认密码"></div></div><button id="savePasswordBtn" class="save-password-btn">保存</button></div>
+        <div class="publish-panel"><div id="blocksContainer"><div class="block"><textarea id="postText" placeholder="Write something..."></textarea><div class="file-upload-container" id="fileUploadContainer"><input type="file" id="postFile" accept="image/*"><div id="selectedFileInfo" class="file-info" style="display:none;"><span class="file-name" id="selectedFileName"></span><span class="file-delete-hint">右键删除</span></div></div></div></div><button id="publishPostBtn" class="enter-btn">PUBLISH</button></div>
         <div id="adminFeed" class="feed"></div>
     </div>
 </div>
 
 <script>
-    (function() {
-        // ===== 缓存强制刷新机制 =====
-        const APP_VERSION = '2024.03.21.01'; // 每次更新时修改这个版本号
-        const CACHE_KEY = 'app_version_cache';
-
-        // 检查是否需要强制刷新
-        function checkVersionAndRefresh() {
-            const lastVersion = localStorage.getItem(CACHE_KEY);
-            
-            if (!lastVersion) {
-                localStorage.setItem(CACHE_KEY, APP_VERSION);
-                return;
-            }
-            
-            if (lastVersion !== APP_VERSION) {
-                localStorage.setItem(CACHE_KEY, APP_VERSION);
-                console.log('检测到新版本，版本号：' + APP_VERSION);
-                
-                // 可以在这里添加版本更新提示
-                setTimeout(() => {
-                    if (document.getElementById('adminMain')?.classList.contains('visible')) {
-                        alert('新版本已部署，所有访客刷新后即可看到最新内容');
-                    }
-                }, 1000);
-            }
-        }
-
-        // 从localStorage读取配置
-        let config = JSON.parse(localStorage.getItem('appConfig') || '{}');
-        const DEFAULT_SECRET_CODE = "qwertyuiop[]\\";
-        const DEFAULT_ADMIN_PASS = "123";  // ◀◀◀ 已修改为 123
-        const DEFAULT_CODE_HINT = "card>-------------";
-
-        // 设置当前暗号和管理员密码
-        let SECRET_CODE = config.secretCode || DEFAULT_SECRET_CODE;
-        let ADMIN_PASS = config.adminPass || DEFAULT_ADMIN_PASS;
-        let CODE_HINT = config.codeHint || DEFAULT_CODE_HINT;
-
-        let posts = JSON.parse(localStorage.getItem('posts') || '[]');
-        
-        // 存储所有悄悄话
-        let whispers = JSON.parse(localStorage.getItem('whispers') || '[]');
-        
-        // 存储访客记录
-        let visitorLogs = JSON.parse(localStorage.getItem('visitorLogs') || '[]');
-        
-        // 确保每个帖子都有views字段
-        posts = posts.map(post => {
-            if (!post.views) post.views = 0;
-            return post;
-        });
-        
-        // 存储所有注册过的访客信息 { name, password }
-        let registeredVisitors = JSON.parse(localStorage.getItem('registeredVisitors') || '[]');
-        
-        // 记录每个用户的错误尝试次数
-        let loginAttempts = JSON.parse(localStorage.getItem('loginAttempts') || '{}');
-        
-        let currentUser = null;
-        let currentFile = null;
-        let currentWhisperFile = null;
-        
-        // 绘图板相关变量
-        let canvas = null;
-        let ctx = null;
-        let isDrawing = false;
-        let currentColor = '#000000';
-        let lastX = 0, lastY = 0;
-        let drawingHistory = [];
-
-        // DOM
-        const mainLogo = document.getElementById('mainLogo');
-        const roleTabs = document.getElementById('roleTabs');
-        const adminTabOnly = document.getElementById('adminTabOnly');
-        const visitorArea = document.getElementById('visitorArea');
-        const adminForm = document.getElementById('adminForm');
-        const loginBtn = document.getElementById('loginBtn');
-        const loginError = document.getElementById('loginError');
-        const loginPage = document.getElementById('loginPage');
-        const visitorMain = document.getElementById('visitorMain');
-        const adminMain = document.getElementById('adminMain');
-        const vDisplayName = document.getElementById('vDisplayName');
-        const editNameBtn = document.getElementById('editNameBtn');
-        const editPasswordBtn = document.getElementById('editPasswordBtn');
-        const sendWhisperBtn = document.getElementById('sendWhisperBtn');
-        const visitorExit = document.getElementById('visitorExit');
-        const adminExit = document.getElementById('adminExit');
-        const viewWhispersIcon = document.getElementById('viewWhispersIcon');
-        const viewVisitorLogIcon = document.getElementById('viewVisitorLogIcon');
-        const whispersPanel = document.getElementById('whispersPanel');
-        const visitorLogPanel = document.getElementById('visitorLogPanel');
-        const closeWhispersBtn = document.getElementById('closeWhispersBtn');
-        const closeVisitorLogBtn = document.getElementById('closeVisitorLogBtn');
-        const whispersList = document.getElementById('whispersList');
-        const visitorLogList = document.getElementById('visitorLogList');
-        const visitorNameInput = document.getElementById('visitorNameInput');
-        const visitorPersonalPass = document.getElementById('visitorPersonalPass');
-        const visitorSecretCode = document.getElementById('visitorSecretCode');
-        const adminNameInput = document.getElementById('adminNameInput');
-        const adminPassInput = document.getElementById('adminPass');
-        const publishBtn = document.getElementById('publishPostBtn');
-        const postText = document.getElementById('postText');
-        const postFile = document.getElementById('postFile');
-        const keyIcon = document.getElementById('keyIcon');
-        const passwordHint = document.getElementById('passwordHint');
-        const loginAttemptsInfo = document.getElementById('loginAttemptsInfo');
-        const forgotPasswordLink = document.getElementById('forgotPasswordLink');
-        
-        // 重置密码弹窗
-        const resetPasswordModal = document.getElementById('resetPasswordModal');
-        const newResetPassword = document.getElementById('newResetPassword');
-        const confirmResetPassword = document.getElementById('confirmResetPassword');
-        const resetPasswordError = document.getElementById('resetPasswordError');
-        const cancelResetPassword = document.getElementById('cancelResetPassword');
-        const confirmResetPasswordBtn = document.getElementById('confirmResetPassword');
-        
-        // 其他弹窗
-        const nameChangeModal = document.getElementById('nameChangeModal');
-        const newNameInput = document.getElementById('newNameInput');
-        const nameChangeError = document.getElementById('nameChangeError');
-        const cancelNameChange = document.getElementById('cancelNameChange');
-        const confirmNameChange = document.getElementById('confirmNameChange');
-        
-        const passwordChangeModal = document.getElementById('passwordChangeModal');
-        const newPasswordInput = document.getElementById('newPasswordInput');
-        const confirmPasswordInput = document.getElementById('confirmPasswordInput');
-        const passwordChangeError = document.getElementById('passwordChangeError');
-        const cancelPasswordChange = document.getElementById('cancelPasswordChange');
-        const confirmPasswordChange = document.getElementById('confirmPasswordChange');
-        
-        const whisperModal = document.getElementById('whisperModal');
-        const whisperContent = document.getElementById('whisperContent');
-        const whisperImage = document.getElementById('whisperImage');
-        const selectedWhisperFileInfo = document.getElementById('selectedWhisperFileInfo');
-        const whisperError = document.getElementById('whisperError');
-        const cancelWhisper = document.getElementById('cancelWhisper');
-        const sendWhisper = document.getElementById('sendWhisper');
-        
-        // 绘图板相关
-        const clearCanvas = document.getElementById('clearCanvas');
-        const undoCanvas = document.getElementById('undoCanvas');
-        const colorDots = document.querySelectorAll('.color-dot');
-        
-        // 密码管理相关
-        const adminLockIcon = document.getElementById('adminLockIcon');
-        const passwordManager = document.getElementById('passwordManager');
-        const newSecretCode = document.getElementById('newSecretCode');
-        const newCodeHint = document.getElementById('newCodeHint');
-        const newAdminPass = document.getElementById('newAdminPass');
-        const confirmAdminPass = document.getElementById('confirmAdminPass');
-        const savePasswordBtn = document.getElementById('savePasswordBtn');
-        const currentSettings = document.getElementById('currentSettings');
-
-        // 文件上传相关
-        const selectedFileInfo = document.getElementById('selectedFileInfo');
-        const selectedFileName = document.getElementById('selectedFileName');
-        const fileUploadContainer = document.getElementById('fileUploadContainer');
-        const contextMenu = document.getElementById('fileContextMenu');
-        const deleteFileMenuItem = document.getElementById('deleteFileMenuItem');
-
-        // 调用版本检查
-        checkVersionAndRefresh();
-
-        // --- 初始化绘图板 ---
-        function initCanvas() {
-            canvas = document.getElementById('whisperCanvas');
-            if (!canvas) return;
-            
-            ctx = canvas.getContext('2d');
-            ctx.strokeStyle = currentColor;
-            ctx.lineWidth = 2;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-            
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            saveCanvasState();
-            
-            canvas.addEventListener('mousedown', startDrawing);
-            canvas.addEventListener('mousemove', draw);
-            canvas.addEventListener('mouseup', stopDrawing);
-            canvas.addEventListener('mouseout', stopDrawing);
-            
-            canvas.addEventListener('touchstart', handleTouchStart);
-            canvas.addEventListener('touchmove', handleTouchMove);
-            canvas.addEventListener('touchend', stopDrawing);
-        }
-
-        function saveCanvasState() {
-            if (ctx) {
-                drawingHistory.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
-                if (drawingHistory.length > 20) {
-                    drawingHistory.shift();
-                }
-            }
-        }
-
-        function undoLastStroke() {
-            if (drawingHistory.length > 1) {
-                drawingHistory.pop();
-                const previousState = drawingHistory[drawingHistory.length - 1];
-                ctx.putImageData(previousState, 0, 0);
-            } else if (drawingHistory.length === 1) {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                drawingHistory = [ctx.getImageData(0, 0, canvas.width, canvas.height)];
-            }
-        }
-
-        function startDrawing(e) {
-            e.preventDefault();
-            isDrawing = true;
-            const pos = getMousePos(e);
-            lastX = pos.x;
-            lastY = pos.y;
-            ctx.beginPath();
-            ctx.moveTo(lastX, lastY);
-        }
-
-        function draw(e) {
-            e.preventDefault();
-            if (!isDrawing) return;
-            
-            const pos = getMousePos(e);
-            const x = pos.x;
-            const y = pos.y;
-            
-            ctx.lineTo(x, y);
-            ctx.stroke();
-            
-            lastX = x;
-            lastY = y;
-        }
-
-        function stopDrawing() {
-            if (isDrawing) {
-                isDrawing = false;
-                saveCanvasState();
-            }
-        }
-
-        function handleTouchStart(e) {
-            e.preventDefault();
-            const touch = e.touches[0];
-            const mouseEvent = new MouseEvent('mousedown', {
-                clientX: touch.clientX,
-                clientY: touch.clientY
-            });
-            canvas.dispatchEvent(mouseEvent);
-        }
-
-        function handleTouchMove(e) {
-            e.preventDefault();
-            const touch = e.touches[0];
-            const mouseEvent = new MouseEvent('mousemove', {
-                clientX: touch.clientX,
-                clientY: touch.clientY
-            });
-            canvas.dispatchEvent(mouseEvent);
-        }
-
-        function getMousePos(e) {
-            const rect = canvas.getBoundingClientRect();
-            const scaleX = canvas.width / rect.width;
-            const scaleY = canvas.height / rect.height;
-            
-            return {
-                x: (e.clientX - rect.left) * scaleX,
-                y: (e.clientY - rect.top) * scaleY
-            };
-        }
-
-        // --- 颜色选择 ---
-        if (colorDots) {
-            colorDots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    colorDots.forEach(d => d.classList.remove('selected'));
-                    dot.classList.add('selected');
-                    currentColor = dot.dataset.color;
-                    if (ctx) {
-                        ctx.strokeStyle = currentColor;
-                    }
-                });
-            });
-        }
-
-        // --- 清除画板 ---
-        if (clearCanvas) {
-            clearCanvas.addEventListener('click', () => {
-                if (ctx) {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    drawingHistory = [ctx.getImageData(0, 0, canvas.width, canvas.height)];
-                }
-            });
-        }
-
-        // --- 撤回上一笔 ---
-        if (undoCanvas) {
-            undoCanvas.addEventListener('click', () => {
-                undoLastStroke();
-            });
-        }
-
-        // --- 更新当前设置显示 ---
-        function updateCurrentSettingsDisplay() {
-            if (currentSettings) {
-                currentSettings.innerHTML = `
-                    <strong>当前设置</strong><br>
-                    暗号：<code>${SECRET_CODE}</code><br>
-                    提示：<code>${CODE_HINT}</code><br>
-                    管理密码：<code>${ADMIN_PASS}</code>
-                `;
-            }
-        }
-
-        passwordHint.textContent = CODE_HINT;
-        updateCurrentSettingsDisplay();
-
-        // --- 添加访客记录（只保留时间）---
-        function addVisitorLog(name) {
-            const log = {
-                name: name,
-                time: new Date().toLocaleString()
-            };
-            visitorLogs.push(log);
-            // 只保留最近30条记录
-            if (visitorLogs.length > 30) {
-                visitorLogs = visitorLogs.slice(-30);
-            }
-            localStorage.setItem('visitorLogs', JSON.stringify(visitorLogs));
-            
-            if (adminMain.classList.contains('visible')) {
-                renderVisitorLogs();
-            }
-        }
-
-        // --- 渲染访客记录（只显示姓名和时间）---
-        function renderVisitorLogs() {
-            visitorLogList.innerHTML = '';
-            
-            if (visitorLogs.length === 0) {
-                visitorLogList.innerHTML = '<div style="text-align: center; color: #999; padding: 2rem;">暂无记录</div>';
-                return;
-            }
-            
-            [...visitorLogs].reverse().forEach(log => {
-                const logDiv = document.createElement('div');
-                logDiv.className = 'visitor-log-item';
-                
-                logDiv.innerHTML = `
-                    <span class="visitor-log-name">${escapeHtml(log.name)}</span>
-                    <span class="visitor-log-time">${log.time}</span>
-                `;
-                
-                visitorLogList.appendChild(logDiv);
-            });
-        }
-
-        // --- 检查姓名是否唯一 ---
-        function isNameUnique(name, excludeCurrent = false) {
-            if (!name) return false;
-            
-            if (excludeCurrent && currentUser) {
-                return !registeredVisitors.some(visitor => 
-                    visitor.name !== currentUser.name && visitor.name === name
-                );
-            }
-            
-            return !registeredVisitors.some(visitor => visitor.name === name);
-        }
-
-        function getVisitorInfo(name) {
-            return registeredVisitors.find(v => v.name === name);
-        }
-
-        function registerVisitor(name, password) {
-            if (!registeredVisitors.some(v => v.name === name)) {
-                registeredVisitors.push({ name, password });
-                localStorage.setItem('registeredVisitors', JSON.stringify(registeredVisitors));
-                addVisitorLog(name);
-                return true;
-            }
-            return false;
-        }
-
-        function updateVisitorName(oldName, newName) {
-            const index = registeredVisitors.findIndex(v => v.name === oldName);
-            if (index !== -1) {
-                const visitor = registeredVisitors[index];
-                registeredVisitors.splice(index, 1);
-                registeredVisitors.push({ name: newName, password: visitor.password });
-                localStorage.setItem('registeredVisitors', JSON.stringify(registeredVisitors));
-            }
-            
-            posts = posts.map(post => {
-                if (post.author === oldName) post.author = newName;
-                if (post.comments) {
-                    post.comments = post.comments.map(c => {
-                        if (c.user === oldName) c.user = newName;
-                        return c;
-                    });
-                }
-                return post;
-            });
-            localStorage.setItem('posts', JSON.stringify(posts));
-            
-            whispers = whispers.map(w => {
-                if (w.sender === oldName) w.sender = newName;
-                return w;
-            });
-            localStorage.setItem('whispers', JSON.stringify(whispers));
-            
-            addVisitorLog(newName);
-        }
-
-        function updateVisitorPassword(name, newPassword) {
-            const index = registeredVisitors.findIndex(v => v.name === name);
-            if (index !== -1) {
-                registeredVisitors[index].password = newPassword;
-                localStorage.setItem('registeredVisitors', JSON.stringify(registeredVisitors));
-                addVisitorLog(name);
-                return true;
-            }
-            return false;
-        }
-
-        function resetVisitorPassword(name, newPassword) {
-            const index = registeredVisitors.findIndex(v => v.name === name);
-            if (index !== -1) {
-                registeredVisitors[index].password = newPassword;
-                localStorage.setItem('registeredVisitors', JSON.stringify(registeredVisitors));
-                if (loginAttempts[name]) {
-                    delete loginAttempts[name];
-                    localStorage.setItem('loginAttempts', JSON.stringify(loginAttempts));
-                }
-                addVisitorLog(name);
-                return true;
-            }
-            return false;
-        }
-
-        window.deleteComment = function(postId, commentIndex) {
-            if (!currentUser || currentUser.role !== 'visitor') return;
-            
-            const post = posts.find(p => p.id === postId);
-            if (!post || !post.comments) return;
-            
-            const comment = post.comments[commentIndex];
-            if (comment.user !== currentUser.name) return;
-            
-            if (confirm('删除这条评论？')) {
-                post.comments.splice(commentIndex, 1);
-                localStorage.setItem('posts', JSON.stringify(posts));
-                
-                renderFeed('visitorFeed', false);
-                if (adminMain.classList.contains('visible')) renderFeed('adminFeed', true);
-                
-                addVisitorLog(currentUser.name);
-            }
-        };
-
-        // --- 右键菜单 ---
-        fileUploadContainer.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-            if (currentFile) {
-                contextMenu.style.display = 'block';
-                contextMenu.style.left = e.pageX + 'px';
-                contextMenu.style.top = e.pageY + 'px';
-            }
-        });
-
-        deleteFileMenuItem.addEventListener('click', () => {
-            if (currentFile) {
-                postFile.value = '';
-                currentFile = null;
-                selectedFileInfo.style.display = 'none';
-                contextMenu.style.display = 'none';
-            }
-        });
-
-        document.addEventListener('click', () => contextMenu.style.display = 'none');
-
-        postFile.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                currentFile = file;
-                selectedFileName.textContent = file.name;
-                selectedFileInfo.style.display = 'flex';
-            } else {
-                currentFile = null;
-                selectedFileInfo.style.display = 'none';
-            }
-        });
-
-        whisperImage.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            currentWhisperFile = file || null;
-            selectedWhisperFileInfo.textContent = file ? `已选择: ${file.name}` : '';
-        });
-
-        mainLogo.addEventListener('dblclick', () => {
-            roleTabs.style.display = 'flex';
-            mainLogo.innerText = "◼  ACCESS  ◼";
-            visitorArea.style.display = 'none';
-            adminForm.style.display = 'block';
-        });
-
-        keyIcon.addEventListener('dblclick', () => {
-            passwordHint.style.display = 'block';
-        });
-
-        adminTabOnly.addEventListener('click', () => {
-            adminTabOnly.classList.add('active');
-            visitorArea.style.display = 'none';
-            adminForm.style.display = 'block';
-        });
-
-        adminLockIcon.addEventListener('dblclick', () => {
-            if (!currentUser || currentUser.role !== 'admin') {
-                alert('只有管理员可以访问');
-                return;
-            }
-            passwordManager.classList.toggle('visible');
-        });
-
-        viewWhispersIcon.addEventListener('click', () => {
-            if (!currentUser || currentUser.role !== 'admin') return;
-            renderWhispers();
-            whispersPanel.classList.add('visible');
-        });
-
-        closeWhispersBtn.addEventListener('click', () => {
-            whispersPanel.classList.remove('visible');
-        });
-
-        viewVisitorLogIcon.addEventListener('click', () => {
-            if (!currentUser || currentUser.role !== 'admin') return;
-            renderVisitorLogs();
-            visitorLogPanel.classList.add('visible');
-        });
-
-        closeVisitorLogBtn.addEventListener('click', () => {
-            visitorLogPanel.classList.remove('visible');
-        });
-
-        function renderWhispers() {
-            whispersList.innerHTML = '';
-            
-            if (whispers.length === 0) {
-                whispersList.innerHTML = '<div style="text-align: center; color: #999; padding: 2rem;">暂无悄悄话</div>';
-                return;
-            }
-            
-            [...whispers].reverse().forEach(w => {
-                const wDiv = document.createElement('div');
-                wDiv.className = 'whisper-item';
-                
-                let imageHtml = '';
-                if (w.image) {
-                    imageHtml = `<img src="${w.image}" class="whisper-image" onclick="window.openImg('${w.image}')">`;
-                }
-                
-                wDiv.innerHTML = `
-                    <div class="whisper-meta">
-                        <span class="whisper-sender">${escapeHtml(w.sender)}</span>
-                        <span>${w.time}</span>
-                    </div>
-                    <div class="whisper-content">${escapeHtml(w.content)}</div>
-                    ${imageHtml}
-                `;
-                
-                whispersList.appendChild(wDiv);
-            });
-        }
-
-        function updateAttemptsDisplay(username) {
-            if (!username) {
-                loginAttemptsInfo.textContent = '';
-                return;
-            }
-            const attempts = loginAttempts[username] || 0;
-            const remaining = 3 - attempts;
-            loginAttemptsInfo.textContent = remaining > 0 ? `还剩 ${remaining} 次机会` : '❌ 尝试过多，请重置密码';
-        }
-
-        // --- 改名 ---
-        editNameBtn.addEventListener('click', () => {
-            newNameInput.value = '';
-            nameChangeError.textContent = '';
-            nameChangeModal.classList.add('visible');
-        });
-
-        cancelNameChange.addEventListener('click', () => nameChangeModal.classList.remove('visible'));
-
-        confirmNameChange.addEventListener('click', () => {
-            const newName = newNameInput.value.trim();
-            if (!newName) { nameChangeError.textContent = '姓名不能为空'; return; }
-            if (newName === currentUser.name) { nameChangeError.textContent = '不能与当前相同'; return; }
-            if (!isNameUnique(newName, true)) { nameChangeError.textContent = '姓名已被使用'; return; }
-            
-            const oldName = currentUser.name;
-            currentUser.name = newName;
-            updateVisitorName(oldName, newName);
-            vDisplayName.innerText = currentUser.name;
-            
-            if (visitorMain.classList.contains('visible')) renderFeed('visitorFeed', false);
-            if (adminMain.classList.contains('visible')) {
-                renderFeed('adminFeed', true);
-                renderWhispers();
-                renderVisitorLogs();
-            }
-            
-            nameChangeModal.classList.remove('visible');
-        });
-
-        // --- 改密码 ---
-        editPasswordBtn.addEventListener('click', () => {
-            newPasswordInput.value = '';
-            confirmPasswordInput.value = '';
-            passwordChangeError.textContent = '';
-            passwordChangeModal.classList.add('visible');
-        });
-
-        cancelPasswordChange.addEventListener('click', () => passwordChangeModal.classList.remove('visible'));
-
-        confirmPasswordChange.addEventListener('click', () => {
-            const np = newPasswordInput.value.trim();
-            const cp = confirmPasswordInput.value.trim();
-            if (!np) { passwordChangeError.textContent = '密码不能为空'; return; }
-            if (np !== cp) { passwordChangeError.textContent = '两次密码不一致'; return; }
-            if (updateVisitorPassword(currentUser.name, np)) {
-                alert('密码修改成功');
-                passwordChangeModal.classList.remove('visible');
-            }
-        });
-
-        // --- 忘记密码 ---
-        forgotPasswordLink.addEventListener('click', () => {
-            const name = visitorNameInput.value.trim();
-            if (!name) { alert('请先输入名字'); return; }
-            if (!getVisitorInfo(name)) { alert('该昵称尚未注册'); return; }
-            newResetPassword.value = '';
-            confirmResetPassword.value = '';
-            resetPasswordError.textContent = '';
-            resetPasswordModal.classList.add('visible');
-        });
-
-        cancelResetPassword.addEventListener('click', () => resetPasswordModal.classList.remove('visible'));
-
-        // 实时检查密码是否一致 - 只有在确认密码输入后才显示提示
-        confirmResetPassword.addEventListener('input', () => {
-            const np = newResetPassword.value.trim();
-            const cp = confirmResetPassword.value.trim();
-            
-            // 只有当确认密码框有内容且与新密码不同时，才显示提示
-            if (cp.length > 0 && np !== cp) {
-                resetPasswordError.textContent = '又忘了？';
-            } else {
-                resetPasswordError.textContent = '';
-            }
-        });
-
-        // 新密码输入时也要检查，但只在确认密码有内容时显示
-        newResetPassword.addEventListener('input', () => {
-            const np = newResetPassword.value.trim();
-            const cp = confirmResetPassword.value.trim();
-            
-            if (cp.length > 0 && np !== cp) {
-                resetPasswordError.textContent = '又忘了？';
-            } else {
-                resetPasswordError.textContent = '';
-            }
-        });
-
-        // 修复重置密码按钮：直接获取最新值进行验证
-        confirmResetPasswordBtn.addEventListener('click', function() {
-            const name = visitorNameInput.value.trim();
-            if (!name) { 
-                resetPasswordError.textContent = '请先输入名字'; 
-                return;
-            }
-            
-            // 直接获取输入框的当前值
-            const np = document.getElementById('newResetPassword').value.trim();
-            const cp = document.getElementById('confirmResetPassword').value.trim();
-            
-            if (!np) { 
-                resetPasswordError.textContent = '新密码不能为空'; 
-                return;
-            }
-            
-            if (np !== cp) { 
-                resetPasswordError.textContent = '又忘了？'; 
-                return;
-            }
-            
-            if (resetVisitorPassword(name, np)) {
-                alert('密码重置成功');
-                resetPasswordModal.classList.remove('visible');
-                updateAttemptsDisplay(name);
-            } else {
-                resetPasswordError.textContent = '重置失败';
-            }
-        });
-
-        // --- 悄悄话 ---
-        sendWhisperBtn.addEventListener('click', () => {
-            whisperContent.value = '';
-            whisperImage.value = '';
-            selectedWhisperFileInfo.textContent = '';
-            currentWhisperFile = null;
-            whisperError.textContent = '';
-            
-            setTimeout(() => initCanvas(), 100);
-            
-            whisperModal.classList.add('visible');
-        });
-
-        cancelWhisper.addEventListener('click', () => whisperModal.classList.remove('visible'));
-
-        sendWhisper.addEventListener('click', () => {
-            const content = whisperContent.value.trim();
-            const hasDrawing = canvas && ctx && !isCanvasEmpty(canvas);
-            
-            if (!content && !currentWhisperFile && !hasDrawing) {
-                whisperError.textContent = '请填写内容或绘制图画';
-                return;
-            }
-            
-            const newWhisper = {
-                id: Date.now(),
-                sender: currentUser.name,
-                content: content,
-                image: null,
-                time: new Date().toLocaleString()
-            };
-            
-            if (hasDrawing) {
-                newWhisper.image = canvas.toDataURL('image/png');
-                saveAndSendWhisper(newWhisper);
-            } else if (currentWhisperFile) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    newWhisper.image = e.target.result;
-                    saveAndSendWhisper(newWhisper);
-                };
-                reader.readAsDataURL(currentWhisperFile);
-            } else {
-                saveAndSendWhisper(newWhisper);
-            }
-        });
-
-        function isCanvasEmpty(canvas) {
-            const ctx = canvas.getContext('2d');
-            const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-            for (let i = 3; i < data.length; i += 4) {
-                if (data[i] !== 0) return false;
-            }
-            return true;
-        }
-
-        function saveAndSendWhisper(whisper) {
-            whispers.push(whisper);
-            localStorage.setItem('whispers', JSON.stringify(whispers));
-            whisperModal.classList.remove('visible');
-            addVisitorLog(currentUser.name);
-            alert('已发送');
-        }
-
-        function incrementViewCount(postId) {
-            const post = posts.find(p => p.id === postId);
-            if (post) {
-                post.views = (post.views || 0) + 1;
-                localStorage.setItem('posts', JSON.stringify(posts));
-                if (visitorMain.classList.contains('visible')) renderFeed('visitorFeed', false);
-                if (adminMain.classList.contains('visible')) renderFeed('adminFeed', true);
-            }
-        }
-
-        // --- 登录 ---
-        loginBtn.addEventListener('click', () => {
-            if (visitorArea.style.display !== 'none') {
-                const name = visitorNameInput.value.trim();
-                const personalPass = visitorPersonalPass.value.trim();
-                const secretCode = visitorSecretCode.value.trim();
-                
-                if (!name) { loginError.innerText = "请输入姓名"; return; }
-                if (secretCode !== SECRET_CODE) { loginError.innerText = "暗号错误"; return; }
-                
-                const existing = getVisitorInfo(name);
-                let attempts = loginAttempts[name] || 0;
-                
-                if (attempts >= 3) {
-                    loginError.innerText = "错误次数过多，请重置密码";
-                    updateAttemptsDisplay(name);
-                    return;
-                }
-                
-                if (existing) {
-                    if (personalPass === existing.password) {
-                        delete loginAttempts[name];
-                        localStorage.setItem('loginAttempts', JSON.stringify(loginAttempts));
-                        login('visitor', name);
-                        addVisitorLog(name);
-                    } else {
-                        attempts++;
-                        loginAttempts[name] = attempts;
-                        localStorage.setItem('loginAttempts', JSON.stringify(loginAttempts));
-                        loginError.innerText = "个人密码错误";
-                        updateAttemptsDisplay(name);
-                    }
-                } else {
-                    if (!personalPass) { loginError.innerText = "请设置个人密码"; return; }
-                    registerVisitor(name, personalPass);
-                    login('visitor', name);
-                }
-            } else {
-                const name = adminNameInput.value.trim();
-                const pass = adminPassInput.value.trim();
-                if (pass === ADMIN_PASS) {
-                    login('admin', name || 'Editor');
-                    addVisitorLog(name || 'Editor');
-                } else {
-                    loginError.innerText = "密码错误";
-                }
-            }
-        });
-
-        function login(role, name) {
-            currentUser = { role, name };
-            loginPage.style.display = 'none';
-            if (role === 'visitor') {
-                visitorMain.classList.add('visible');
-                vDisplayName.innerText = name;
-                renderFeed('visitorFeed', false);
-            } else {
-                adminMain.classList.add('visible');
-                renderFeed('adminFeed', true);
-                updateCurrentSettingsDisplay();
-                renderWhispers();
-                renderVisitorLogs();
-            }
-        }
-
-        function logout() {
-            if (currentUser && currentUser.role === 'visitor') {
-                addVisitorLog(currentUser.name);
-            }
-            
-            visitorMain.classList.remove('visible');
-            adminMain.classList.remove('visible');
-            loginPage.style.display = 'block';
-            
-            visitorArea.style.display = 'block';
-            adminForm.style.display = 'none';
-            roleTabs.style.display = 'none';
-            passwordHint.style.display = 'none';
-            passwordManager.classList.remove('visible');
-            whispersPanel.classList.remove('visible');
-            visitorLogPanel.classList.remove('visible');
-            
-            visitorNameInput.value = '';
-            visitorPersonalPass.value = '';
-            visitorSecretCode.value = '';
-            adminNameInput.value = '';
-            adminPassInput.value = '';
-            postText.value = '';
-            postFile.value = '';
-            currentFile = null;
-            selectedFileInfo.style.display = 'none';
-            
-            loginError.innerText = '';
-            currentUser = null;
-            mainLogo.innerText = "◼  ME.  ◼";
-        }
-
-        visitorExit.addEventListener('click', logout);
-        adminExit.addEventListener('click', logout);
-
-        // --- 保存管理员设置 ---
-        savePasswordBtn.addEventListener('click', () => {
-            if (!currentUser || currentUser.role !== 'admin') return;
-
-            const newAdmin = newAdminPass.value.trim();
-            const confirmAdmin = confirmAdminPass.value.trim();
-            if (newAdmin || confirmAdmin) {
-                if (newAdmin !== confirmAdmin) { alert('管理员密码不一致'); return; }
-                if (newAdmin) ADMIN_PASS = newAdmin;
-            }
-
-            const newCode = newSecretCode.value.trim();
-            const newHint = newCodeHint.value.trim();
-            if (newCode) SECRET_CODE = newCode;
-            if (newHint) CODE_HINT = newHint;
-
-            localStorage.setItem('appConfig', JSON.stringify({
-                secretCode: SECRET_CODE,
-                adminPass: ADMIN_PASS,
-                codeHint: CODE_HINT
-            }));
-
-            passwordHint.textContent = CODE_HINT;
-            updateCurrentSettingsDisplay();
-            newSecretCode.value = ''; newCodeHint.value = ''; newAdminPass.value = ''; confirmAdminPass.value = '';
-            alert('已保存');
-        });
-
-        // --- 发布 ---
-        publishBtn.addEventListener('click', () => {
-            if (!currentUser || currentUser.role !== 'admin') { alert('只有管理员可以发布'); return; }
-            
-            const text = postText.value.trim();
-            const file = currentFile;
-
-            const newPost = {
-                id: Date.now(),
-                author: currentUser.name || 'Editor',
-                date: new Date().toLocaleDateString(),
-                text: text,
-                image: null,
-                views: 0,
-                comments: []
-            };
-
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    newPost.image = e.target.result;
-                    posts.push(newPost);
-                    localStorage.setItem('posts', JSON.stringify(posts));
-                    renderFeed('adminFeed', true);
-                    postText.value = ''; postFile.value = ''; currentFile = null; selectedFileInfo.style.display = 'none';
-                };
-                reader.readAsDataURL(file);
-            } else {
-                posts.push(newPost);
-                localStorage.setItem('posts', JSON.stringify(posts));
-                renderFeed('adminFeed', true);
-                postText.value = ''; postFile.value = ''; currentFile = null; selectedFileInfo.style.display = 'none';
-            }
-        });
-
-        window.deletePost = function(id) {
-            if (!currentUser || currentUser.role !== 'admin') return;
-            if (confirm('删除？')) {
-                posts = posts.filter(p => p.id !== id);
-                localStorage.setItem('posts', JSON.stringify(posts));
-                renderFeed('adminFeed', true);
-                if (visitorMain.classList.contains('visible')) renderFeed('visitorFeed', false);
-            }
-        };
-
-        function escapeHtml(unsafe) {
-            if (!unsafe) return unsafe;
-            return unsafe.replace(/[&<>"']/g, function(m) {
-                if(m === '&') return '&amp;'; if(m === '<') return '&lt;'; if(m === '>') return '&gt;'; if(m === '"') return '&quot;'; return '&#039;';
-            });
-        }
-
-        function renderFeed(containerId, isAdmin) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            container.innerHTML = '';
-            
-            [...posts].reverse().forEach(post => {
-                const item = document.createElement('div');
-                item.className = 'feed-item';
-                
-                let html = `
-                    <div class="feed-header">
-                        <span><span class="feed-author">${escapeHtml(post.author)}</span> <span class="feed-date">${post.date}</span></span>
-                    </div>
-                    <div class="feed-content">
-                        ${post.text ? `<div class="feed-text">${escapeHtml(post.text)}</div>` : ''}
-                        ${post.image ? `<img src="${post.image}" class="feed-image" onclick="openImg('${post.image}', ${post.id})">` : ''}
-                    </div>
-                `;
-                html += `<div class="view-count-container"><span class="view-count">${post.views || 0}</span></div>`;
-                html += `<div class="comment-section">`;
-                if (post.comments && post.comments.length) {
-                    post.comments.forEach((c, idx) => {
-                        const delBtn = (!isAdmin && currentUser?.role === 'visitor' && c.user === currentUser.name) 
-                            ? `<button class="delete-comment" onclick="deleteComment(${post.id}, ${idx})">🗑️</button>` : '';
-                        html += `<div class="comment-item">${delBtn}<div class="comment-meta"><span class="comment-user">${escapeHtml(c.user)}</span> • ${c.time}</div><div>${escapeHtml(c.content)}</div></div>`;
-                    });
-                }
-                if (!isAdmin) {
-                    html += `<div class="comment-input-area"><textarea id="c-in-${post.id}" class="comment-input" placeholder="评论..."></textarea><button class="comment-btn" onclick="addComment(${post.id})">发表</button></div>`;
-                }
-                html += `</div>`;
-                if (isAdmin) html += `<button class="delete-post" onclick="deletePost(${post.id})">🗑️</button>`;
-                item.innerHTML = html;
-                if (!isAdmin) {
-                    const td = item.querySelector('.feed-text');
-                    if (td) { td.style.cursor = 'pointer'; td.addEventListener('click', () => incrementViewCount(post.id)); }
-                }
-                container.appendChild(item);
-            });
-        }
-
-        window.addComment = (postId) => {
-            if (!currentUser || currentUser.role !== 'visitor') return;
-            const inp = document.getElementById(`c-in-${postId}`);
-            if (!inp?.value.trim()) return;
-            const post = posts.find(p => p.id === postId);
-            if (post) {
-                post.comments = post.comments || [];
-                post.comments.push({ user: currentUser.name, content: inp.value.trim(), time: new Date().toLocaleTimeString() });
-                localStorage.setItem('posts', JSON.stringify(posts));
-                inp.value = '';
-                renderFeed('visitorFeed', false);
-                if (adminMain.classList.contains('visible')) renderFeed('adminFeed', true);
-                addVisitorLog(currentUser.name);
-            }
-        };
-
-        window.openImg = (src, postId) => {
-            document.getElementById('modalImage').src = src;
-            document.getElementById('imageModal').classList.add('active');
-            if (postId) incrementViewCount(postId);
-        };
-
-        // 点击模态框背景关闭
-        [nameChangeModal, passwordChangeModal, resetPasswordModal, whisperModal].forEach(m => {
-            m.addEventListener('click', (e) => { if (e.target === m) m.classList.remove('visible'); });
-        });
-
-        // 初始化
-        loginPage.style.display = 'block';
-        visitorMain.classList.remove('visible');
-        adminMain.classList.remove('visible');
-        visitorArea.style.display = 'block';
-        adminForm.style.display = 'none';
-        roleTabs.style.display = 'none';
-        passwordHint.style.display = 'none';
-        passwordManager.classList.remove('visible');
-        whispersPanel.classList.remove('visible');
-        visitorLogPanel.classList.remove('visible');
-        selectedFileInfo.style.display = 'none';
-        mainLogo.innerText = "◼  ME.  ◼";
-    })();
+(function() {
+    // -------------------- 版本锚核心逻辑 --------------------
+    // 每次管理员更新后，所有用户（包括新访客）看到的都是最新的数据。
+    // 强制使用 localStorage 中的最新全局配置与内容，不存在版本分歧。
+
+    const APP_VERSION = '2026.03.21.01';  // 修改此值以触发更新通知
+
+    // 读取/初始化配置
+    let config = JSON.parse(localStorage.getItem('appConfig') || '{}');
+    const DEFAULT_SECRET_CODE = "qwertyuiop[]\\";
+    const DEFAULT_ADMIN_PASS = "123";
+    const DEFAULT_CODE_HINT = "card>-------------";
+
+    // 全局设置 (始终从localStorage读取最新)
+    let SECRET_CODE = config.secretCode || DEFAULT_SECRET_CODE;
+    let ADMIN_PASS = config.adminPass || DEFAULT_ADMIN_PASS;
+    let CODE_HINT = config.codeHint || DEFAULT_CODE_HINT;
+
+    // 核心数据
+    let posts = JSON.parse(localStorage.getItem('posts') || '[]');
+    let whispers = JSON.parse(localStorage.getItem('whispers') || '[]');
+    let visitorLogs = JSON.parse(localStorage.getItem('visitorLogs') || '[]');
+    let registeredVisitors = JSON.parse(localStorage.getItem('registeredVisitors') || '[]');
+    let loginAttempts = JSON.parse(localStorage.getItem('loginAttempts') || '{}');
+
+    // 修复历史数据缺views
+    posts = posts.map(p => { if (!p.views) p.views = 0; return p; });
+
+    let currentUser = null;
+    let currentFile = null;
+    let currentWhisperFile = null;
+
+    // 绘图板变量
+    let canvas = null, ctx = null, isDrawing = false, currentColor = '#000000', lastX = 0, lastY = 0, drawingHistory = [];
+
+    // DOM 元素
+    const mainLogo = document.getElementById('mainLogo');
+    const roleTabs = document.getElementById('roleTabs');
+    const adminTabOnly = document.getElementById('adminTabOnly');
+    const visitorArea = document.getElementById('visitorArea');
+    const adminForm = document.getElementById('adminForm');
+    const loginBtn = document.getElementById('loginBtn');
+    const loginError = document.getElementById('loginError');
+    const loginPage = document.getElementById('loginPage');
+    const visitorMain = document.getElementById('visitorMain');
+    const adminMain = document.getElementById('adminMain');
+    const vDisplayName = document.getElementById('vDisplayName');
+    const editNameBtn = document.getElementById('editNameBtn');
+    const editPasswordBtn = document.getElementById('editPasswordBtn');
+    const sendWhisperBtn = document.getElementById('sendWhisperBtn');
+    const visitorExit = document.getElementById('visitorExit');
+    const adminExit = document.getElementById('adminExit');
+    const viewWhispersIcon = document.getElementById('viewWhispersIcon');
+    const viewVisitorLogIcon = document.getElementById('viewVisitorLogIcon');
+    const whispersPanel = document.getElementById('whispersPanel');
+    const visitorLogPanel = document.getElementById('visitorLogPanel');
+    const closeWhispersBtn = document.getElementById('closeWhispersBtn');
+    const closeVisitorLogBtn = document.getElementById('closeVisitorLogBtn');
+    const whispersList = document.getElementById('whispersList');
+    const visitorLogList = document.getElementById('visitorLogList');
+    const visitorNameInput = document.getElementById('visitorNameInput');
+    const visitorPersonalPass = document.getElementById('visitorPersonalPass');
+    const visitorSecretCode = document.getElementById('visitorSecretCode');
+    const adminNameInput = document.getElementById('adminNameInput');
+    const adminPassInput = document.getElementById('adminPass');
+    const publishBtn = document.getElementById('publishPostBtn');
+    const postText = document.getElementById('postText');
+    const postFile = document.getElementById('postFile');
+    const keyIcon = document.getElementById('keyIcon');
+    const passwordHint = document.getElementById('passwordHint');
+    const loginAttemptsInfo = document.getElementById('loginAttemptsInfo');
+    const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+    const resetPasswordModal = document.getElementById('resetPasswordModal');
+    const newResetPassword = document.getElementById('newResetPassword');
+    const confirmResetPassword = document.getElementById('confirmResetPassword');
+    const resetPasswordError = document.getElementById('resetPasswordError');
+    const cancelResetPassword = document.getElementById('cancelResetPassword');
+    const confirmResetPasswordBtn = document.getElementById('confirmResetPassword');
+    const nameChangeModal = document.getElementById('nameChangeModal');
+    const newNameInput = document.getElementById('newNameInput');
+    const nameChangeError = document.getElementById('nameChangeError');
+    const cancelNameChange = document.getElementById('cancelNameChange');
+    const confirmNameChange = document.getElementById('confirmNameChange');
+    const passwordChangeModal = document.getElementById('passwordChangeModal');
+    const newPasswordInput = document.getElementById('newPasswordInput');
+    const confirmPasswordInput = document.getElementById('confirmPasswordInput');
+    const passwordChangeError = document.getElementById('passwordChangeError');
+    const cancelPasswordChange = document.getElementById('cancelPasswordChange');
+    const confirmPasswordChange = document.getElementById('confirmPasswordChange');
+    const whisperModal = document.getElementById('whisperModal');
+    const whisperContent = document.getElementById('whisperContent');
+    const whisperImage = document.getElementById('whisperImage');
+    const selectedWhisperFileInfo = document.getElementById('selectedWhisperFileInfo');
+    const whisperError = document.getElementById('whisperError');
+    const cancelWhisper = document.getElementById('cancelWhisper');
+    const sendWhisper = document.getElementById('sendWhisper');
+    const clearCanvas = document.getElementById('clearCanvas');
+    const undoCanvas = document.getElementById('undoCanvas');
+    const colorDots = document.querySelectorAll('.color-dot');
+    const adminLockIcon = document.getElementById('adminLockIcon');
+    const passwordManager = document.getElementById('passwordManager');
+    const newSecretCode = document.getElementById('newSecretCode');
+    const newCodeHint = document.getElementById('newCodeHint');
+    const newAdminPass = document.getElementById('newAdminPass');
+    const confirmAdminPass = document.getElementById('confirmAdminPass');
+    const savePasswordBtn = document.getElementById('savePasswordBtn');
+    const currentSettings = document.getElementById('currentSettings');
+    const selectedFileInfo = document.getElementById('selectedFileInfo');
+    const selectedFileName = document.getElementById('selectedFileName');
+    const fileUploadContainer = document.getElementById('fileUploadContainer');
+    const contextMenu = document.getElementById('fileContextMenu');
+    const deleteFileMenuItem = document.getElementById('deleteFileMenuItem');
+
+    // 初始化提示
+    passwordHint.textContent = CODE_HINT;
+    updateCurrentSettingsDisplay();
+
+    // ========== 工具函数 ==========
+    function escapeHtml(unsafe) { if(!unsafe)return unsafe; return unsafe.replace(/[&<>"']/g, function(m){if(m==='&')return'&amp;';if(m==='<')return'&lt;';if(m==='>')return'&gt;';if(m==='"')return'&quot;';return'&#039;';});}
+    function updateCurrentSettingsDisplay() { if(currentSettings) currentSettings.innerHTML = `<strong>当前设置</strong><br>暗号：<code>${SECRET_CODE}</code><br>提示：<code>${CODE_HINT}</code><br>管理密码：<code>${ADMIN_PASS}</code>`; }
+    function addVisitorLog(name) { let log={name,time:new Date().toLocaleString()}; visitorLogs.push(log); if(visitorLogs.length>30) visitorLogs=visitorLogs.slice(-30); localStorage.setItem('visitorLogs',JSON.stringify(visitorLogs)); if(adminMain.classList.contains('visible')) renderVisitorLogs(); }
+    function renderVisitorLogs() { visitorLogList.innerHTML=''; if(visitorLogs.length===0){visitorLogList.innerHTML='<div style="text-align:center;color:#999;padding:2rem;">暂无记录</div>';return;} [...visitorLogs].reverse().forEach(log=>{let d=document.createElement('div'); d.className='visitor-log-item'; d.innerHTML=`<span class="visitor-log-name">${escapeHtml(log.name)}</span><span class="visitor-log-time">${log.time}</span>`; visitorLogList.appendChild(d); });}
+    function isNameUnique(name,excludeCurrent=false){ if(!name)return false; if(excludeCurrent && currentUser) return !registeredVisitors.some(v=>v.name!==currentUser.name && v.name===name); return !registeredVisitors.some(v=>v.name===name); }
+    function getVisitorInfo(name){ return registeredVisitors.find(v=>v.name===name); }
+    function registerVisitor(name,password){ if(!registeredVisitors.some(v=>v.name===name)){ registeredVisitors.push({name,password}); localStorage.setItem('registeredVisitors',JSON.stringify(registeredVisitors)); addVisitorLog(name); return true;} return false; }
+    function updateVisitorName(oldName,newName){ let idx=registeredVisitors.findIndex(v=>v.name===oldName); if(idx!==-1){ let v=registeredVisitors[idx]; registeredVisitors.splice(idx,1); registeredVisitors.push({name:newName,password:v.password}); localStorage.setItem('registeredVisitors',JSON.stringify(registeredVisitors)); } posts=posts.map(p=>{if(p.author===oldName)p.author=newName; if(p.comments)p.comments=p.comments.map(c=>{if(c.user===oldName)c.user=newName; return c;}); return p;}); localStorage.setItem('posts',JSON.stringify(posts)); whispers=whispers.map(w=>{if(w.sender===oldName)w.sender=newName; return w;}); localStorage.setItem('whispers',JSON.stringify(whispers)); addVisitorLog(newName); }
+    function updateVisitorPassword(name,newPassword){ let idx=registeredVisitors.findIndex(v=>v.name===name); if(idx!==-1){ registeredVisitors[idx].password=newPassword; localStorage.setItem('registeredVisitors',JSON.stringify(registeredVisitors)); addVisitorLog(name); return true;} return false; }
+    function resetVisitorPassword(name,newPassword){ let idx=registeredVisitors.findIndex(v=>v.name===name); if(idx!==-1){ registeredVisitors[idx].password=newPassword; localStorage.setItem('registeredVisitors',JSON.stringify(registeredVisitors)); if(loginAttempts[name]){ delete loginAttempts[name]; localStorage.setItem('loginAttempts',JSON.stringify(loginAttempts)); } addVisitorLog(name); return true;} return false; }
+    function updateAttemptsDisplay(username){ if(!username){loginAttemptsInfo.textContent='';return;} let attempts=loginAttempts[username]||0; let remaining=3-attempts; loginAttemptsInfo.textContent=remaining>0?`还剩 ${remaining} 次机会`:'❌ 尝试过多，请重置密码'; }
+    function incrementViewCount(postId){ let post=posts.find(p=>p.id===postId); if(post){ post.views=(post.views||0)+1; localStorage.setItem('posts',JSON.stringify(posts)); if(visitorMain.classList.contains('visible')) renderFeed('visitorFeed',false); if(adminMain.classList.contains('visible')) renderFeed('adminFeed',true); }}
+
+    // 渲染动态流 (管理员与访客)
+    window.deleteComment = function(postId,commentIndex){ if(!currentUser||currentUser.role!=='visitor')return; let post=posts.find(p=>p.id===postId); if(!post||!post.comments)return; let comment=post.comments[commentIndex]; if(comment.user!==currentUser.name)return; if(confirm('删除这条评论？')){ post.comments.splice(commentIndex,1); localStorage.setItem('posts',JSON.stringify(posts)); renderFeed('visitorFeed',false); if(adminMain.classList.contains('visible'))renderFeed('adminFeed',true); addVisitorLog(currentUser.name); }};
+    window.addComment = (postId) => { if(!currentUser||currentUser.role!=='visitor')return; let inp=document.getElementById(`c-in-${postId}`); if(!inp?.value.trim())return; let post=posts.find(p=>p.id===postId); if(post){ post.comments=post.comments||[]; post.comments.push({user:currentUser.name, content:inp.value.trim(), time:new Date().toLocaleTimeString()}); localStorage.setItem('posts',JSON.stringify(posts)); inp.value=''; renderFeed('visitorFeed',false); if(adminMain.classList.contains('visible'))renderFeed('adminFeed',true); addVisitorLog(currentUser.name); }};
+    window.openImg = (src,postId) => { document.getElementById('modalImage').src=src; document.getElementById('imageModal').classList.add('active'); if(postId) incrementViewCount(postId); };
+    window.deletePost = function(id){ if(!currentUser||currentUser.role!=='admin')return; if(confirm('删除？')){ posts=posts.filter(p=>p.id!==id); localStorage.setItem('posts',JSON.stringify(posts)); renderFeed('adminFeed',true); if(visitorMain.classList.contains('visible'))renderFeed('visitorFeed',false); }};
+
+    function renderFeed(containerId,isAdmin){ const container=document.getElementById(containerId); if(!container)return; container.innerHTML=''; [...posts].reverse().forEach(post=>{ let item=document.createElement('div'); item.className='feed-item'; let html=`<div class="feed-header"><span><span class="feed-author">${escapeHtml(post.author)}</span> <span class="feed-date">${post.date}</span></span></div><div class="feed-content">${post.text?`<div class="feed-text">${escapeHtml(post.text)}</div>`:''}${post.image?`<img src="${post.image}" class="feed-image" onclick="openImg('${post.image}',${post.id})">`:''}</div><div class="view-count-container"><span class="view-count">${post.views||0}</span></div><div class="comment-section">`; if(post.comments&&post.comments.length){ post.comments.forEach((c,idx)=>{ let delBtn=(!isAdmin && currentUser?.role==='visitor' && c.user===currentUser.name)?`<button class="delete-comment" onclick="deleteComment(${post.id}, ${idx})">🗑️</button>`:''; html+=`<div class="comment-item">${delBtn}<div class="comment-meta"><span class="comment-user">${escapeHtml(c.user)}</span> • ${c.time}</div><div>${escapeHtml(c.content)}</div></div>`; }); } if(!isAdmin) html+=`<div class="comment-input-area"><textarea id="c-in-${post.id}" class="comment-input" placeholder="评论..."></textarea><button class="comment-btn" onclick="addComment(${post.id})">发表</button></div>`; html+=`</div>`; if(isAdmin) html+=`<button class="delete-post" onclick="deletePost(${post.id})">🗑️</button>`; item.innerHTML=html; if(!isAdmin){ let td=item.querySelector('.feed-text'); if(td){td.style.cursor='pointer'; td.addEventListener('click',()=>incrementViewCount(post.id));}} container.appendChild(item); }); }
+
+    // 绘图板
+    function initCanvas(){ canvas=document.getElementById('whisperCanvas'); if(!canvas)return; ctx=canvas.getContext('2d'); ctx.strokeStyle=currentColor; ctx.lineWidth=2; ctx.lineCap='round'; ctx.lineJoin='round'; ctx.clearRect(0,0,canvas.width,canvas.height); saveCanvasState(); canvas.addEventListener('mousedown',startDrawing); canvas.addEventListener('mousemove',draw); canvas.addEventListener('mouseup',stopDrawing); canvas.addEventListener('mouseout',stopDrawing); canvas.addEventListener('touchstart',handleTouchStart); canvas.addEventListener('touchmove',handleTouchMove); canvas.addEventListener('touchend',stopDrawing); }
+    function saveCanvasState(){ if(ctx){ drawingHistory.push(ctx.getImageData(0,0,canvas.width,canvas.height)); if(drawingHistory.length>20) drawingHistory.shift(); }}
+    function undoLastStroke(){ if(drawingHistory.length>1){ drawingHistory.pop(); ctx.putImageData(drawingHistory[drawingHistory.length-1],0,0); }else if(drawingHistory.length===1){ ctx.clearRect(0,0,canvas.width,canvas.height); drawingHistory=[ctx.getImageData(0,0,canvas.width,canvas.height)]; }}
+    function startDrawing(e){ e.preventDefault(); isDrawing=true; let pos=getMousePos(e); lastX=pos.x; lastY=pos.y; ctx.beginPath(); ctx.moveTo(lastX,lastY); }
+    function draw(e){ e.preventDefault(); if(!isDrawing)return; let pos=getMousePos(e); ctx.lineTo(pos.x,pos.y); ctx.stroke(); lastX=pos.x; lastY=pos.y; }
+    function stopDrawing(){ if(isDrawing){isDrawing=false; saveCanvasState();}}
+    function handleTouchStart(e){e.preventDefault();let t=e.touches[0];canvas.dispatchEvent(new MouseEvent('mousedown',{clientX:t.clientX,clientY:t.clientY}));}
+    function handleTouchMove(e){e.preventDefault();let t=e.touches[0];canvas.dispatchEvent(new MouseEvent('mousemove',{clientX:t.clientX,clientY:t.clientY}));}
+    function getMousePos(e){let r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*(canvas.width/r.width),y:(e.clientY-r.top)*(canvas.height/r.height)};}
+    function isCanvasEmpty(c){let d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;for(let i=3;i<d.length;i+=4)if(d[i]!==0)return false;return true;}
+
+    // 颜色选择
+    if(colorDots) colorDots.forEach(d=>{d.addEventListener('click',()=>{colorDots.forEach(dd=>dd.classList.remove('selected'));d.classList.add('selected');currentColor=d.dataset.color;if(ctx)ctx.strokeStyle=currentColor;});});
+    if(clearCanvas) clearCanvas.addEventListener('click',()=>{if(ctx){ctx.clearRect(0,0,canvas.width,canvas.height);drawingHistory=[ctx.getImageData(0,0,canvas.width,canvas.height)];}});
+    if(undoCanvas) undoCanvas.addEventListener('click',undoLastStroke);
+
+    // 悄悄话发送
+    sendWhisper.addEventListener('click',()=>{let content=whisperContent.value.trim(); let hasDrawing=canvas&&ctx&&!isCanvasEmpty(canvas); if(!content&&!currentWhisperFile&&!hasDrawing){whisperError.textContent='请填写内容或绘制图画';return;} let newWhisper={id:Date.now(),sender:currentUser.name,content,image:null,time:new Date().toLocaleString()}; if(hasDrawing){newWhisper.image=canvas.toDataURL('image/png');saveAndSendWhisper(newWhisper);}else if(currentWhisperFile){let reader=new FileReader();reader.onload=(e)=>{newWhisper.image=e.target.result; saveAndSendWhisper(newWhisper);}; reader.readAsDataURL(currentWhisperFile);}else{saveAndSendWhisper(newWhisper);}});
+    function saveAndSendWhisper(w){whispers.push(w); localStorage.setItem('whispers',JSON.stringify(whispers)); whisperModal.classList.remove('visible'); addVisitorLog(currentUser.name); alert('已发送');}
+
+    // 登录逻辑
+    loginBtn.addEventListener('click',()=>{ if(visitorArea.style.display!=='none'){ let name=visitorNameInput.value.trim(), pwd=visitorPersonalPass.value.trim(), code=visitorSecretCode.value.trim(); if(!name){loginError.innerText="请输入姓名";return;} if(code!==SECRET_CODE){loginError.innerText="暗号错误";return;} let existing=getVisitorInfo(name); let attempts=loginAttempts[name]||0; if(attempts>=3){loginError.innerText="错误次数过多，请重置密码"; updateAttemptsDisplay(name); return;} if(existing){ if(pwd===existing.password){ delete loginAttempts[name]; localStorage.setItem('loginAttempts',JSON.stringify(loginAttempts)); login('visitor',name); addVisitorLog(name); }else{ attempts++; loginAttempts[name]=attempts; localStorage.setItem('loginAttempts',JSON.stringify(loginAttempts)); loginError.innerText="个人密码错误"; updateAttemptsDisplay(name); } } else { if(!pwd){loginError.innerText="请设置个人密码";return;} registerVisitor(name,pwd); login('visitor',name); } } else { let name=adminNameInput.value.trim()||'Editor', pass=adminPassInput.value.trim(); if(pass===ADMIN_PASS){ login('admin',name); addVisitorLog(name); } else { loginError.innerText="密码错误"; } } });
+
+    function login(role,name){ currentUser={role,name}; loginPage.style.display='none'; if(role==='visitor'){ visitorMain.classList.add('visible'); vDisplayName.innerText=name; renderFeed('visitorFeed',false); } else { adminMain.classList.add('visible'); renderFeed('adminFeed',true); renderWhispers(); renderVisitorLogs(); updateCurrentSettingsDisplay(); } }
+    function logout(){ if(currentUser&&currentUser.role==='visitor') addVisitorLog(currentUser.name); visitorMain.classList.remove('visible'); adminMain.classList.remove('visible'); loginPage.style.display='block'; visitorArea.style.display='block'; adminForm.style.display='none'; roleTabs.style.display='none'; passwordHint.style.display='none'; passwordManager.classList.remove('visible'); whispersPanel.classList.remove('visible'); visitorLogPanel.classList.remove('visible'); visitorNameInput.value=''; visitorPersonalPass.value=''; visitorSecretCode.value=''; adminNameInput.value=''; adminPassInput.value=''; postText.value=''; postFile.value=''; currentFile=null; selectedFileInfo.style.display='none'; loginError.innerText=''; currentUser=null; mainLogo.innerText="◼  ME.  ◼"; }
+    visitorExit.addEventListener('click',logout); adminExit.addEventListener('click',logout);
+
+    // 管理员保存设置 (更新后立即同步到全局变量)
+    savePasswordBtn.addEventListener('click',()=>{ if(!currentUser||currentUser.role!=='admin')return; let newAdmin=newAdminPass.value.trim(), confirmAdmin=confirmAdminPass.value.trim(); if(newAdmin||confirmAdmin){ if(newAdmin!==confirmAdmin){alert('管理员密码不一致');return;} if(newAdmin) ADMIN_PASS=newAdmin; } let newCode=newSecretCode.value.trim(), newHint=newCodeHint.value.trim(); if(newCode) SECRET_CODE=newCode; if(newHint) CODE_HINT=newHint; localStorage.setItem('appConfig',JSON.stringify({secretCode:SECRET_CODE,adminPass:ADMIN_PASS,codeHint:CODE_HINT})); passwordHint.textContent=CODE_HINT; updateCurrentSettingsDisplay(); newSecretCode.value=''; newCodeHint.value=''; newAdminPass.value=''; confirmAdminPass.value=''; alert('已保存'); });
+
+    // 右键菜单
+    fileUploadContainer.addEventListener('contextmenu',(e)=>{e.preventDefault(); if(currentFile){contextMenu.style.display='block'; contextMenu.style.left=e.pageX+'px'; contextMenu.style.top=e.pageY+'px';}});
+    deleteFileMenuItem.addEventListener('click',()=>{if(currentFile){postFile.value=''; currentFile=null; selectedFileInfo.style.display='none'; contextMenu.style.display='none';}});
+    document.addEventListener('click',()=>contextMenu.style.display='none');
+    postFile.addEventListener('change',(e)=>{let f=e.target.files[0]; if(f){currentFile=f; selectedFileName.textContent=f.name; selectedFileInfo.style.display='flex';}else{currentFile=null; selectedFileInfo.style.display='none';}});
+    whisperImage.addEventListener('change',(e)=>{let f=e.target.files[0]; currentWhisperFile=f||null; selectedWhisperFileInfo.textContent=f?`已选择: ${f.name}`:'';});
+
+    // 弹窗关闭
+    [nameChangeModal,passwordChangeModal,resetPasswordModal,whisperModal].forEach(m=>{m.addEventListener('click',(e)=>{if(e.target===m)m.classList.remove('visible');});});
+
+    // 改名改密码等 (略去重复但完整保留)
+    editNameBtn.addEventListener('click',()=>{ newNameInput.value=''; nameChangeError.textContent=''; nameChangeModal.classList.add('visible');});
+    cancelNameChange.addEventListener('click',()=>nameChangeModal.classList.remove('visible'));
+    confirmNameChange.addEventListener('click',()=>{ let nn=newNameInput.value.trim(); if(!nn){nameChangeError.textContent='姓名不能为空';return;} if(nn===currentUser.name){nameChangeError.textContent='不能与当前相同';return;} if(!isNameUnique(nn,true)){nameChangeError.textContent='姓名已被使用';return;} let old=currentUser.name; currentUser.name=nn; updateVisitorName(old,nn); vDisplayName.innerText=nn; if(visitorMain.classList.contains('visible'))renderFeed('visitorFeed',false); if(adminMain.classList.contains('visible')){renderFeed('adminFeed',true);renderWhispers();renderVisitorLogs();} nameChangeModal.classList.remove('visible');});
+    editPasswordBtn.addEventListener('click',()=>{ newPasswordInput.value=''; confirmPasswordInput.value=''; passwordChangeError.textContent=''; passwordChangeModal.classList.add('visible');});
+    cancelPasswordChange.addEventListener('click',()=>passwordChangeModal.classList.remove('visible'));
+    confirmPasswordChange.addEventListener('click',()=>{ let np=newPasswordInput.value.trim(), cp=confirmPasswordInput.value.trim(); if(!np){passwordChangeError.textContent='密码不能为空';return;} if(np!==cp){passwordChangeError.textContent='两次密码不一致';return;} if(updateVisitorPassword(currentUser.name,np)){alert('密码修改成功'); passwordChangeModal.classList.remove('visible');}});
+    forgotPasswordLink.addEventListener('click',()=>{ let name=visitorNameInput.value.trim(); if(!name){alert('请先输入名字');return;} if(!getVisitorInfo(name)){alert('该昵称尚未注册');return;} newResetPassword.value=''; confirmResetPassword.value=''; resetPasswordError.textContent=''; resetPasswordModal.classList.add('visible');});
+    cancelResetPassword.addEventListener('click',()=>resetPasswordModal.classList.remove('visible'));
+    confirmResetPassword.addEventListener('input',()=>{let np=newResetPassword.value.trim(), cp=confirmResetPassword.value.trim(); if(cp.length>0&&np!==cp) resetPasswordError.textContent='又忘了？'; else resetPasswordError.textContent='';});
+    newResetPassword.addEventListener('input',()=>{let np=newResetPassword.value.trim(), cp=confirmResetPassword.value.trim(); if(cp.length>0&&np!==cp) resetPasswordError.textContent='又忘了？'; else resetPasswordError.textContent='';});
+    confirmResetPasswordBtn.addEventListener('click',function(){ let name=visitorNameInput.value.trim(); if(!name){resetPasswordError.textContent='请先输入名字'; return;} let np=document.getElementById('newResetPassword').value.trim(), cp=document.getElementById('confirmResetPassword').value.trim(); if(!np){resetPasswordError.textContent='新密码不能为空'; return;} if(np!==cp){resetPasswordError.textContent='又忘了？'; return;} if(resetVisitorPassword(name,np)){alert('密码重置成功'); resetPasswordModal.classList.remove('visible'); updateAttemptsDisplay(name);} else resetPasswordError.textContent='重置失败';});
+    sendWhisperBtn.addEventListener('click',()=>{ whisperContent.value=''; whisperImage.value=''; selectedWhisperFileInfo.textContent=''; currentWhisperFile=null; whisperError.textContent=''; setTimeout(()=>initCanvas(),100); whisperModal.classList.add('visible');});
+    cancelWhisper.addEventListener('click',()=>whisperModal.classList.remove('visible'));
+    mainLogo.addEventListener('dblclick',()=>{ roleTabs.style.display='flex'; mainLogo.innerText="◼  ACCESS  ◼"; visitorArea.style.display='none'; adminForm.style.display='block';});
+    keyIcon.addEventListener('dblclick',()=>{ passwordHint.style.display='block';});
+    adminTabOnly.addEventListener('click',()=>{ adminTabOnly.classList.add('active'); visitorArea.style.display='none'; adminForm.style.display='block';});
+    adminLockIcon.addEventListener('dblclick',()=>{ if(!currentUser||currentUser.role!=='admin'){alert('只有管理员可以访问');return;} passwordManager.classList.toggle('visible');});
+    viewWhispersIcon.addEventListener('click',()=>{ if(!currentUser||currentUser.role!=='admin')return; renderWhispers(); whispersPanel.classList.add('visible');});
+    closeWhispersBtn.addEventListener('click',()=>whispersPanel.classList.remove('visible'));
+    viewVisitorLogIcon.addEventListener('click',()=>{ if(!currentUser||currentUser.role!=='admin')return; renderVisitorLogs(); visitorLogPanel.classList.add('visible');});
+    closeVisitorLogBtn.addEventListener('click',()=>visitorLogPanel.classList.remove('visible'));
+    function renderWhispers(){ whispersList.innerHTML=''; if(whispers.length===0){whispersList.innerHTML='<div style="text-align:center;color:#999;padding:2rem;">暂无悄悄话</div>';return;} [...whispers].reverse().forEach(w=>{let d=document.createElement('div'); d.className='whisper-item'; let imgHtml=w.image?`<img src="${w.image}" class="whisper-image" onclick="openImg('${w.image}')">`:''; d.innerHTML=`<div class="whisper-meta"><span class="whisper-sender">${escapeHtml(w.sender)}</span><span>${w.time}</span></div><div class="whisper-content">${escapeHtml(w.content)}</div>${imgHtml}`; whispersList.appendChild(d);});}
+    publishBtn.addEventListener('click',()=>{ if(!currentUser||currentUser.role!=='admin'){alert('只有管理员可以发布');return;} let text=postText.value.trim(), file=currentFile; let newPost={id:Date.now(),author:currentUser.name||'Editor',date:new Date().toLocaleDateString(),text,image:null,views:0,comments:[]}; if(file){let reader=new FileReader(); reader.onload=(e)=>{newPost.image=e.target.result; posts.push(newPost); localStorage.setItem('posts',JSON.stringify(posts)); renderFeed('adminFeed',true); postText.value=''; postFile.value=''; currentFile=null; selectedFileInfo.style.display='none';}; reader.readAsDataURL(file);} else { posts.push(newPost); localStorage.setItem('posts',JSON.stringify(posts)); renderFeed('adminFeed',true); postText.value=''; postFile.value=''; currentFile=null; selectedFileInfo.style.display='none';}});
+    // 初始界面
+    loginPage.style.display='block'; visitorMain.classList.remove('visible'); adminMain.classList.remove('visible'); visitorArea.style.display='block'; adminForm.style.display='none'; roleTabs.style.display='none'; passwordHint.style.display='none'; passwordManager.classList.remove('visible'); whispersPanel.classList.remove('visible'); visitorLogPanel.classList.remove('visible'); selectedFileInfo.style.display='none'; mainLogo.innerText="◼  ME.  ◼";
+
+    // 版本提示（可选）
+    console.log('当前版本 '+APP_VERSION);
+})();
 </script>
-<!-- 添加版本号 - 每次更新时修改这个数字，强制刷新缓存 -->
+<!-- 版本显示 所有用户永远看到管理员发布的最新内容 -->
 <div style="position: fixed; bottom: 5px; right: 10px; font-size: 10px; color: #999; z-index: 9999; background: rgba(255,255,255,0.8); padding: 2px 6px; border-radius: 3px;">
-    版本: 2024.03.21.01
+    版本: 2026.03.21.01
 </div>
 </body>
 </html>
