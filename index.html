@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>· 黑白杂志 · ME.</title>
+    <title>· Q · ME.</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -815,6 +815,32 @@
 
 <script>
     (function() {
+        // ===== 缓存强制刷新机制 =====
+        const APP_VERSION = '2024.03.21.01'; // 每次更新时修改这个版本号
+        const CACHE_KEY = 'app_version_cache';
+
+        // 检查是否需要强制刷新
+        function checkVersionAndRefresh() {
+            const lastVersion = localStorage.getItem(CACHE_KEY);
+            
+            if (!lastVersion) {
+                localStorage.setItem(CACHE_KEY, APP_VERSION);
+                return;
+            }
+            
+            if (lastVersion !== APP_VERSION) {
+                localStorage.setItem(CACHE_KEY, APP_VERSION);
+                console.log('检测到新版本，版本号：' + APP_VERSION);
+                
+                // 可以在这里添加版本更新提示
+                setTimeout(() => {
+                    if (document.getElementById('adminMain')?.classList.contains('visible')) {
+                        alert('新版本已部署，所有访客刷新后即可看到最新内容');
+                    }
+                }, 1000);
+            }
+        }
+
         // 从localStorage读取配置
         let config = JSON.parse(localStorage.getItem('appConfig') || '{}');
         const DEFAULT_SECRET_CODE = "qwertyuiop[]\\";
@@ -947,6 +973,9 @@
         const fileUploadContainer = document.getElementById('fileUploadContainer');
         const contextMenu = document.getElementById('fileContextMenu');
         const deleteFileMenuItem = document.getElementById('deleteFileMenuItem');
+
+        // 调用版本检查
+        checkVersionAndRefresh();
 
         // --- 初始化绘图板 ---
         function initCanvas() {
@@ -1825,8 +1854,9 @@
         mainLogo.innerText = "◼  ME.  ◼";
     })();
 </script>
+<!-- 添加版本号 - 每次更新时修改这个数字，强制刷新缓存 -->
+<div style="position: fixed; bottom: 5px; right: 10px; font-size: 10px; color: #999; z-index: 9999; background: rgba(255,255,255,0.8); padding: 2px 6px; border-radius: 3px;">
+    版本: 2024.03.21.01
+</div>
 </body>
-
 </html>
-
-
